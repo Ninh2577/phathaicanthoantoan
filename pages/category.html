@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- INJECT_SEO_TAGS -->
+  <link rel="stylesheet" href="/assets/css/globals.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/home.css"> <!-- Reusing magazine styles -->
+</head>
+<body data-theme="blue">
+  <!-- INJECT_COMPONENT: components/header.html -->
+  
+  <main id="main-content">
+    
+    <!-- Category Hero -->
+    <div style="background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-white) 100%); padding: 60px 0; border-bottom: 1px solid var(--color-border); text-align: center;">
+      <div class="skmd-container">
+        <h1 style="font-size: 2.5rem; color: var(--color-primary-dark); margin-bottom: 16px;"><!-- INJECT_CATEGORY_TITLE --></h1>
+        <p style="color: var(--color-text-light); max-width: 600px; margin: 0 auto; font-size: 1.125rem;"><!-- INJECT_CATEGORY_DESC --></p>
+      </div>
+    </div>
+
+    <!-- Category Navigation -->
+    <div class="skmd-container" style="padding-top: 32px;">
+      <div style="font-size: 0.875rem; color: var(--color-text-main); margin-bottom: 24px; font-weight: 500;">
+        <a href="/" style="color: var(--color-primary); text-decoration: none;">Trang Chủ</a> &rsaquo; 
+        <span style="color: var(--color-text-light);"><!-- INJECT_CATEGORY_TITLE --></span>
+      </div>
+      
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
+        <a href="/" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500;">Tất Cả</a>
+        <a href="/tri" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500;">Trĩ</a>
+        <a href="/tri-noi" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500;">Trĩ nội</a>
+        <a href="/tri-ngoai" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500;">Trĩ ngoại</a>
+        <a href="/tri-hon-hop" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500;">Trĩ hỗn hợp</a>
+        <a href="/ro-hau-mon" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500;">Rò hậu môn</a>
+      </div>
+    </div>
+
+    <div class="skmd-container skmd-section" style="padding-top: 16px;">
+      <div class="skmd-layout-sidebar">
+        
+        <!-- MAIN FEED -->
+        <div class="skmd-feed">
+          
+          <div class="skmd-magazine__list">
+            <!-- INJECT_CATEGORY_ARTICLES -->
+          </div>
+
+          <!-- INJECT_PAGINATION -->
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="skmd-sidebar">
+          
+          <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 32px;">
+            <h3 style="font-size: 1.25rem; color: var(--color-primary-dark); margin-bottom: 16px; border-bottom: 2px solid var(--color-secondary); padding-bottom: 8px;">Tìm Kiếm</h3>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" placeholder="Tìm kiếm bài viết..." style="flex:1; padding:12px; border:1px solid var(--color-border); border-radius:var(--radius-sm);">
+              <button class="skmd-btn skmd-btn--primary" style="min-width:auto; padding: 0 16px;">TÌM</button>
+            </div>
+          </div>
+
+          <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 32px;">
+            <h3 style="font-size: 1.25rem; color: var(--color-primary-dark); margin-bottom: 16px; border-bottom: 2px solid var(--color-secondary); padding-bottom: 8px;">Chuyên Mục Nổi Bật</h3>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+              <li><a href="/tri" style="color: var(--color-text-main);">Trĩ</a></li>
+              <li><a href="/tri-noi" style="color: var(--color-text-main);">Trĩ nội</a></li>
+              <li><a href="/tri-ngoai" style="color: var(--color-text-main);">Trĩ ngoại</a></li>
+              <li><a href="/tri-hon-hop" style="color: var(--color-text-main);">Trĩ hỗn hợp</a></li>
+              <li><a href="/ro-hau-mon" style="color: var(--color-text-main);">Rò hậu môn</a></li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- INJECT_COMPONENT: components/footer.html -->
+  <script src="/assets/js/core.js" type="module" defer></script>
+</body>
+</html>

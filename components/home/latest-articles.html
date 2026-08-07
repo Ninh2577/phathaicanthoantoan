@@ -1,0 +1,101 @@
+<!-- Home: Latest Articles (Carousel Layout) -->
+<section class="skmd-section">
+  <div class="skmd-container">
+    <div class="skmd-section-header">
+      <span class="skmd-subtitle">KIẾN THỨC Y KHOA</span>
+      <h2 class="skmd-heading-2">Cẩm Nang Sức Khỏe Hậu Môn</h2>
+      <p class="skmd-section-desc">Cập nhật những thông tin y tế, phương pháp điều trị và cách phòng ngừa bệnh trĩ mới nhất từ chuyên gia, đã qua kiểm duyệt y khoa.</p>
+    </div>
+
+    <div class="skmd-carousel-wrapper" style="overflow: hidden; position: relative; margin-top: 32px; padding: 0 48px;">
+      
+      <!-- Prev Button -->
+      <button id="btn-prev-article" aria-label="Previous" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 10; background: white; border: 1px solid var(--color-border); box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0.4; transition: all 0.3s ease;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+
+      <div id="article-carousel-track" style="display: flex; gap: 24px; transition: transform 0.4s ease-in-out;">
+        <!-- INJECT_CAROUSEL_ARTICLES -->
+      </div>
+      
+      <!-- Next Button -->
+      <button id="btn-next-article" aria-label="Next" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 10; background: white; border: 1px solid var(--color-border); box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0.4; transition: all 0.3s ease;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="/kien-thuc" class="skmd-btn skmd-btn--outline">Xem tất cả bài viết</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  #btn-prev-article:hover, #btn-next-article:hover {
+    opacity: 1 !important;
+    background-color: var(--color-primary) !important;
+  }
+  #btn-prev-article:hover svg, #btn-next-article:hover svg {
+    stroke: white;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('article-carousel-track');
+    const btnPrev = document.getElementById('btn-prev-article');
+    const btnNext = document.getElementById('btn-next-article');
+    
+    if (!track || !btnPrev || !btnNext) return;
+    
+    let currentIndex = 0;
+    const cards = track.children;
+    const totalCards = cards.length;
+    
+    const getCardsPerView = () => window.innerWidth < 768 ? 1 : (window.innerWidth < 1024 ? 2 : 3);
+    
+    function updateCarousel() {
+      if (totalCards === 0) return;
+      
+      const cardsPerView = getCardsPerView();
+      const maxIndex = Math.max(0, totalCards - cardsPerView);
+      
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 24; 
+      const moveDistance = (cardWidth + gap) * currentIndex;
+      track.style.transform = `translateX(-${moveDistance}px)`;
+      
+      if(currentIndex === 0) {
+        btnPrev.style.pointerEvents = 'none';
+        btnPrev.style.opacity = '0.2';
+      } else {
+        btnPrev.style.pointerEvents = 'auto';
+        btnPrev.style.opacity = '0.6';
+      }
+      
+      if(currentIndex >= maxIndex) {
+        btnNext.style.pointerEvents = 'none';
+        btnNext.style.opacity = '0.2';
+      } else {
+        btnNext.style.pointerEvents = 'auto';
+        btnNext.style.opacity = '0.6';
+      }
+    }
+
+    btnNext.addEventListener('click', () => {
+      currentIndex++;
+      updateCarousel();
+    });
+
+    btnPrev.addEventListener('click', () => {
+      currentIndex--;
+      updateCarousel();
+    });
+    
+    updateCarousel();
+    
+    window.addEventListener('resize', updateCarousel);
+  });
+</script>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- INJECT_SEO_TAGS -->
+  <link rel="stylesheet" href="/assets/css/globals.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+</head>
+<body data-theme="blue">
+  <!-- INJECT_COMPONENT: components/header.html -->
+  <main id="main-content">
+    <div style="background-color: #fcfdfd; min-height: 80vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 60px 0;">
+      
+      <div class="skmd-container">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;">
+          
+          <!-- Left Content -->
+          <div style="flex: 1 1 500px; position: relative; z-index: 2;">
+            
+            <!-- Huge Watermark 404 -->
+            <div style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); font-size: 25rem; font-weight: 900; color: var(--color-bg-offset); z-index: -1; line-height: 1; user-select: none; pointer-events: none; letter-spacing: -10px; opacity: 0.8;">
+              404
+            </div>
+
+            <h1 style="font-size: 3rem; color: var(--color-primary-dark); font-weight: 800; margin-bottom: 24px; line-height: 1.2;">
+              Oops, có gì đó không đúng...
+            </h1>
+            
+            <p style="font-size: 1.25rem; color: var(--color-text-main); margin-bottom: 32px; line-height: 1.6; max-width: 480px;">
+              Có vẻ như bạn đang lạc vào đường dẫn nào đó không tồn tại hoặc đang được bảo trì.<br>
+              Hãy <a href="/" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">quay lại Cắt Trĩ Cần Thơ</a> và tiếp tục tìm kiếm thông tin sức khỏe phù hợp nhé!
+            </p>
+            
+            <div style="margin-bottom: 32px;">
+              <a href="/" class="skmd-btn skmd-btn--primary skmd-btn--lg" style="box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);">
+                Về Trang Chủ
+              </a>
+            </div>
+            
+            <p style="font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 12px;">Hoặc truy cập nhanh các chuyên mục:</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="/tri" class="skmd-category-btn">Trĩ</a>
+              <a href="/tri-noi" class="skmd-category-btn">Trĩ Nội</a>
+              <a href="/tri-ngoai" class="skmd-category-btn">Trĩ Ngoại</a>
+              <a href="/tri-hon-hop" class="skmd-category-btn">Trĩ Hỗn Hợp</a>
+              <a href="/ro-hau-mon" class="skmd-category-btn">Rò Hậu Môn</a>
+            </div>
+          </div>
+
+          <!-- Right Content (Illustration) -->
+          <div style="flex: 1 1 400px; display: flex; justify-content: center; position: relative; z-index: 2;">
+            <img src="/assets/images/404-illustration.png" alt="Lạc đường" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); animation: floating 3s ease-in-out infinite; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+          </div>
+
+        </div>
+      </div>
+      
+      <style>
+        .skmd-category-btn {
+          color: var(--color-primary);
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.9rem;
+          padding: 8px 16px;
+          background: white;
+          border-radius: 50px;
+          border: 1px solid var(--color-border);
+          transition: all 0.25s ease;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .skmd-category-btn:hover {
+          background: var(--color-primary);
+          color: white;
+          border-color: var(--color-primary);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+        @keyframes floating {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+          100% { transform: translateY(0px); }
+        }
+        @media (max-width: 768px) {
+          .skmd-container > div {
+            flex-direction: column-reverse;
+            text-align: center;
+          }
+          .skmd-container > div > div:first-child h1 {
+            font-size: 2.2rem;
+          }
+          .skmd-container > div > div:first-child > div {
+            font-size: 12rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          .skmd-container > div > div:first-child p {
+            margin: 0 auto 32px;
+          }
+        }
+      </style>
+    </div>
+  </main>
+  <!-- INJECT_COMPONENT: components/footer.html -->
+  <script src="/assets/js/core.js" type="module" defer></script>
+</body>
+</html>
