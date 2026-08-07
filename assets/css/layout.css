@@ -1,69 +1,88 @@
 /* Layout Architecture (Grid & Spacing) */
 
-/* Container Rules */
+/* Container Rules - Premium Editorial Width */
 .skmd-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
+/* For narrower text reading blocks */
 .skmd-content {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Layout System */
-.skmd-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.skmd-layout-sidebar {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-}
-
-@media (min-width: 1024px) {
-  .skmd-layout-sidebar {
-    grid-template-columns: 1fr 350px;
-    align-items: start;
-  }
-}
-
 /* Section Spacing Rules */
 .skmd-section {
-  padding: 40px 0;
+  padding: clamp(72px, 8vw, 140px) 0;
 }
 
-.skmd-section-lg {
-  padding: 60px 0;
+.skmd-section--no-bottom {
+  padding-bottom: 0 !important;
+}
+
+.skmd-section--no-top {
+  padding-top: 0 !important;
+}
+
+/* International Grid System (12/8/4) */
+.skmd-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Mobile: 4 columns */
+  gap: 24px;
 }
 
 @media (min-width: 768px) {
-  .skmd-section {
-    padding: 80px 0;
+  .skmd-grid {
+    grid-template-columns: repeat(8, 1fr); /* Tablet: 8 columns */
+    gap: 32px;
   }
-  .skmd-section-lg {
-    padding: 120px 0;
-  }
-}
-
-/* Grid Rules */
-.skmd-grid-2 { display: grid; grid-template-columns: 1fr; gap: 24px; }
-.skmd-grid-3 { display: grid; grid-template-columns: 1fr; gap: 24px; }
-.skmd-grid-4 { display: grid; grid-template-columns: 1fr; gap: 24px; }
-
-@media (min-width: 640px) {
-  .skmd-grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .skmd-grid-3 { grid-template-columns: repeat(2, 1fr); }
-  .skmd-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1024px) {
-  .skmd-grid-3 { grid-template-columns: repeat(3, 1fr); }
-  .skmd-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .skmd-grid {
+    grid-template-columns: repeat(12, 1fr); /* Desktop: 12 columns */
+    gap: 40px;
+  }
+}
+
+/* Legacy Utility Grids */
+.skmd-grid-2 { display: grid; grid-template-columns: 1fr; gap: 32px; }
+.skmd-grid-3 { display: grid; grid-template-columns: 1fr; gap: 32px; }
+.skmd-grid-4 { display: grid; grid-template-columns: 1fr; gap: 32px; }
+
+@media (min-width: 768px) {
+  .skmd-grid-2 { grid-template-columns: repeat(2, 1fr); gap: 48px; }
+  .skmd-grid-3 { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .skmd-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+
+@media (min-width: 1024px) {
+  .skmd-grid-3 { grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .skmd-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 40px; }
+}
+
+/* Split Asymmetric Layouts (Editorial style) */
+.skmd-split {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+@media (min-width: 1024px) {
+  .skmd-split {
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+  }
+  .skmd-split > * {
+    flex: 1;
+    min-width: 0; /* prevent blowout */
+  }
+  /* Modifiers for ratio */
+  .skmd-split--40-60 > *:first-child { flex: 0 0 40%; }
+  .skmd-split--50-50 > *:first-child { flex: 0 0 50%; }
+  .skmd-split--60-40 > *:first-child { flex: 0 0 60%; }
 }

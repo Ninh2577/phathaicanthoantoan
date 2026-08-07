@@ -1,64 +1,139 @@
-<!-- Home: Hero Section -->
-<section class="skmd-hero skmd-hero--has-bg">
-  <div class="skmd-hero__bg-pattern" aria-hidden="true"></div>
-  <div class="skmd-container skmd-hero__inner">
-    <div class="skmd-hero__content skmd-animate-fade-up">
-      <h1 class="skmd-hero__title">
-        Giải Pháp Điều Trị Trĩ <span class="text-primary">Tiên Tiến</span> Đạt Chuẩn Quốc Tế
-      </h1>
-      <p class="skmd-hero__desc">
-        Hệ thống chuyên khoa hậu môn trực tràng hàng đầu Cần Thơ. Chấm dứt cơn đau trĩ nhanh chóng với phác đồ cá nhân hóa từ các chuyên gia 15+ năm kinh nghiệm.
-      </p>
+<!-- Home: Hero Section (OB-GYN Dual Reference Design) -->
+<section id="hero" style="background-color: var(--color-medical-bg); position: relative; overflow: hidden; padding: clamp(40px, 5vw, 64px) 0 32px 0; border-bottom: 1px solid var(--color-border);">
+  
+  <div class="skmd-container">
+    <div class="skmd-split skmd-split--60-40" style="align-items: center; gap: 40px;">
       
-      <!-- 4 Trust Points -->
-      <ul class="skmd-hero__trust-points">
-        <li>
-          <div class="skmd-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg></div>
-          <span>Ít Đau Đớn</span>
-        </li>
-        <li>
-          <div class="skmd-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <span>Chuẩn Y Khoa</span>
-        </li>
-        <li>
-          <div class="skmd-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <span>Bảo Mật 100%</span>
-        </li>
-        <li>
-          <div class="skmd-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <span>Phục Hồi Nhanh</span>
-        </li>
-      </ul>
-
-      <div class="skmd-hero__actions">
-        <a href="/dat-lich" class="skmd-btn skmd-btn--primary skmd-btn--xl skmd-hero-btn">Đặt Lịch Khám</a>
-        <a href="tel:<!-- INJECT_HOTLINE_RAW -->" class="skmd-btn skmd-btn--outline skmd-btn--xl skmd-hero-btn">
-          <i class="icon-phone" style="margin-right: 8px;"></i> Tư Vấn Ngay
-        </a>
-      </div>
-    </div>
-    
-    <div class="skmd-hero__visual skmd-animate-fade-left">
-      <div class="skmd-hero__image-wrapper skmd-ratio skmd-ratio--16-9">
-        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80&w=1200" 
-             alt="Bác sĩ chuyên khoa y tế" 
-             class="skmd-hero__img" 
-             loading="eager"
-             srcset="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=600 600w,
-                     https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=1200 1200w"
-             sizes="(max-width: 768px) 100vw, 50vw">
+      <!-- Left: Clinical Content -->
+      <div style="z-index: 2;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; background-color: var(--color-soft-rose); padding: 5px 14px; border-radius: var(--radius-full);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>CHUYÊN KHOA SẢN PHỤ KHOA &bull; TƯ VẤN KÍN ĐÁO 24/7</span>
+        </div>
         
-        <!-- Floating Trust Card -->
-        <div class="skmd-floating-card skmd-floating-card--bl">
-          <div class="skmd-floating-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h1 style="color: var(--color-primary-dark); font-size: clamp(2.125rem, 3.8vw, 3.25rem); font-weight: 800; line-height: 1.18; margin-bottom: 14px; letter-spacing: -0.02em;">
+          Giải Pháp Đình Chỉ Thai <br><span style="color: var(--color-primary);">An Toàn Tại Cần Thơ</span>
+        </h1>
+        
+        <p style="font-size: 1.125rem; color: var(--color-text-main); font-weight: 700; margin-bottom: 12px; line-height: 1.4;">
+          Tận Tâm – Kín Đáo – Đạt Tiêu Chuẩn Y Khoa
+        </p>
+        
+        <p style="font-size: 0.9375rem; color: var(--color-text-light); margin-bottom: 28px; max-width: 520px; line-height: 1.65;">
+          Hướng dẫn quy trình thăm khám và hỗ trợ đình chỉ thai an toàn, bảo vệ tối đa sức khỏe sinh sản nữ giới với cam kết bảo mật thông tin 100%.
+        </p>
+        
+        <!-- CTA Action Buttons (Pill Style - Image 1 & 2) -->
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 28px;">
+          <a href="tel:0901234567" style="display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 28px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); color: white; border-radius: var(--radius-full); font-weight: 700; font-size: 0.9375rem; text-decoration: none; box-shadow: 0 4px 14px rgba(157, 56, 98, 0.28);">
+            Đặt Lịch Tư Vấn ngay
+          </a>
+          <a href="tel:0901234567" style="display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 24px; color: var(--color-primary-dark); background-color: var(--color-white); border: 1px solid var(--color-border-hover); border-radius: var(--radius-full); font-weight: 700; font-size: 0.9375rem; text-decoration: none;">
+            Gọi Tư Vấn Kín Đáo
+          </a>
+        </div>
+
+        <!-- Trust Checkmarks -->
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; border-top: 1px solid var(--color-border); padding-top: 18px;">
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.84375rem; color: var(--color-text-main); font-weight: 600;">
+            <div style="width: 20px; height: 20px; background-color: var(--color-soft-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--color-secondary-dark);">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span>Bảo mật 100%</span>
           </div>
-          <div class="skmd-floating-card__content">
-            <strong>5000+</strong>
-            <span>Ca tư vấn thành công</span>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.84375rem; color: var(--color-text-main); font-weight: 600;">
+            <div style="width: 20px; height: 20px; background-color: var(--color-soft-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--color-secondary-dark);">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span>Tư vấn 1-1 riêng tư</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.84375rem; color: var(--color-text-main); font-weight: 600;">
+            <div style="width: 20px; height: 20px; background-color: var(--color-soft-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--color-secondary-dark);">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span>Hỗ trợ 24/7</span>
           </div>
         </div>
       </div>
+
+      <!-- Right: Anonymous Medical Privacy Card (Inspired by Image 1/2 Media Card) -->
+      <div style="position: relative; z-index: 1;">
+        <div style="border-radius: var(--radius-lg); border: 1px solid var(--color-border); background-color: var(--color-white); padding: 32px 28px; box-shadow: var(--shadow-md); position: relative;">
+          
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
+            <div style="width: 52px; height: 52px; background: linear-gradient(135deg, var(--color-soft-rose), #F9DDE7); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--color-primary); border: 1px solid var(--color-border);">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.05em; display: block;">CAM KẾT AN TOÀN</span>
+              <h3 style="font-size: 1.1875rem; font-weight: 800; color: var(--color-primary-dark); margin: 0; line-height: 1.25;">Trung Tâm Tư Vấn Kín Đáo</h3>
+            </div>
+          </div>
+          
+          <p style="font-size: 0.875rem; color: var(--color-text-light); line-height: 1.65; margin-bottom: 20px;">
+            Mọi thông tin cá nhân và cuộc trao đổi tư vấn y khoa phụ khoa của bạn đều được bảo mật tuyệt đối, không chia sẻ với bên thứ ba dưới bất kỳ hình thức nào.
+          </p>
+
+          <div style="background-color: var(--color-medical-bg); border-radius: var(--radius-md); padding: 14px 16px; border: 1px dashed var(--color-primary-light);">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 700; color: var(--color-primary-dark);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Tiếp nhận thông tin 1-1 chuyên mật</span>
+            </div>
+            <p style="margin: 4px 0 0 0; font-size: 0.78125rem; color: var(--color-text-light);">
+              Hỗ trợ giải đáp trực tiếp 24/7 mọi thắc mắc trước khi thăm khám.
+            </p>
+          </div>
+
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>
+
+<!-- 4 Highlights Cards (Image 1 Style Grid Directly Below Hero) -->
+<section style="background-color: var(--color-white); padding: 36px 0; border-bottom: 1px solid var(--color-border);">
+  <div class="skmd-container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+      
+      <!-- Card 1 -->
+      <div style="background-color: var(--color-medical-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 22px 20px; text-align: center; transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+        <div style="width: 48px; height: 48px; background-color: var(--color-white); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--color-primary); margin: 0 auto 12px auto; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3 style="font-size: 0.9375rem; font-weight: 800; color: var(--color-primary-dark); margin-bottom: 6px;">Chuẩn Y Khoa</h3>
+        <p style="font-size: 0.8125rem; color: var(--color-text-light); margin: 0; line-height: 1.5;">Quy trình hướng dẫn dựa trên kiến thức lâm sàng an toàn.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="background-color: var(--color-medical-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 22px 20px; text-align: center; transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+        <div style="width: 48px; height: 48px; background-color: var(--color-white); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--color-primary); margin: 0 auto 12px auto; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        </div>
+        <h3 style="font-size: 0.9375rem; font-weight: 800; color: var(--color-primary-dark); margin-bottom: 6px;">Bảo Mật Khép Kín</h3>
+        <p style="font-size: 0.8125rem; color: var(--color-text-light); margin: 0; line-height: 1.5;">Cam kết 100% không để lộ danh tính cá nhân người thăm khám.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="background-color: var(--color-medical-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 22px 20px; text-align: center; transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+        <div style="width: 48px; height: 48px; background-color: var(--color-white); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--color-primary); margin: 0 auto 12px auto; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+        </div>
+        <h3 style="font-size: 0.9375rem; font-weight: 800; color: var(--color-primary-dark); margin-bottom: 6px;">Không Chờ Đợi</h3>
+        <p style="font-size: 0.8125rem; color: var(--color-text-light); margin: 0; line-height: 1.5;">Hệ thống đặt hẹn linh hoạt, tiết kiệm thời gian xếp hàng.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div style="background-color: var(--color-medical-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 22px 20px; text-align: center; transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+        <div style="width: 48px; height: 48px; background-color: var(--color-white); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--color-primary); margin: 0 auto 12px auto; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path></svg>
+        </div>
+        <h3 style="font-size: 0.9375rem; font-weight: 800; color: var(--color-primary-dark); margin-bottom: 6px;">Hỗ Trợ Tận Tâm 24/7</h3>
+        <p style="font-size: 0.8125rem; color: var(--color-text-light); margin: 0; line-height: 1.5;">Lắng nghe, thấu hiểu và đồng hành cùng người bệnh 24/7.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+

@@ -1,9 +1,9 @@
 export const themeConfig = {
   colors: {
-    primary: "#0ea5e9", // Blue 500 (Ngành Y)
-    primaryLight: "#38bdf8", // Blue 400
-    primaryDark: "#0369a1", // Blue 700
-    secondary: "#f0f9ff", // Blue 50
+    primary: "#e11d48", // Rose 600 (Phụ Khoa)
+    primaryLight: "#fb7185", // Rose 400
+    primaryDark: "#be123c", // Rose 700
+    secondary: "#fff1f2", // Rose 50
     textMain: "#1e293b",
     textLight: "#64748b",
     border: "#e2e8f0",

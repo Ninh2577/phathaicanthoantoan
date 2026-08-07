@@ -1,52 +1,96 @@
-<!-- Home: FAQ Section -->
-<section class="skmd-section skmd-section--bg-offset" style="padding-bottom: 40px;">
+<!-- Home: FAQ Section (Minimalist 3-Question Satellite Accordion) -->
+<section id="faq" class="skmd-section" style="background-color: var(--color-white); border-bottom: 1px solid var(--color-border); padding: clamp(40px, 5vw, 64px) 0;">
   <div class="skmd-container">
-    <div class="skmd-section-header">
-      <h2 class="skmd-heading-2">Câu Hỏi Thường Gặp</h2>
-      <p class="skmd-section-desc">Giải đáp các thắc mắc phổ biến của bệnh nhân về bệnh trĩ và các phương pháp điều trị.</p>
+    
+    <div style="max-width: 640px; margin-bottom: 32px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path></svg>
+        <span>GIẢI ĐÁP Y KHOA</span>
+      </div>
+      <h2 style="font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--color-primary-dark); font-weight: 800; margin: 0 0 8px 0; line-height: 1.3;">
+        Câu Hỏi Thường Gặp
+      </h2>
+      <p style="font-size: 0.9375rem; color: var(--color-text-light); margin: 0;">
+        Giải đáp thắc mắc phổ biến về quy trình tư vấn và thăm khám an toàn.
+      </p>
     </div>
 
-    <div class="skmd-faq-container">
+    <!-- Accordion List (3 Top Questions) -->
+    <div class="skmd-faq-accordion" style="display: flex; flex-direction: column; width: 100%; max-width: 800px;">
       
-      <!-- FAQ Item -->
-      <div class="skmd-faq-item">
-        <button class="skmd-faq-item__header" aria-expanded="false">
-          <span>Cắt trĩ bằng phương pháp PPH có đau không?</span>
-          <svg class="skmd-faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); margin-bottom: 12px; background-color: var(--color-white); overflow: hidden;">
+        <button class="skmd-faq-item__header" aria-expanded="false" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; text-align: left; background: none; border: none; color: var(--color-text-main); font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color var(--transition-fast);">
+          <span>1. Khi nào tôi cần liên hệ tư vấn?</span>
+          <span class="skmd-faq-item__icon" style="flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; margin-left: 12px; transition: transform var(--transition-normal); color: var(--color-text-muted);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
         </button>
-        <div class="skmd-faq-item__content">
-          <div class="skmd-faq-item__body">
-            Phương pháp PPH thao tác trên vùng niêm mạc không có dây thần kinh cảm giác đau, do đó hạn chế tối đa cảm giác đau đớn cho bệnh nhân so với phương pháp phẫu thuật truyền thống. Bệnh nhân có thể đi lại bình thường ngay sau phẫu thuật.
-          </div>
+        <div class="skmd-faq-item__body" style="height: 0; overflow: hidden; transition: height var(--transition-normal), opacity var(--transition-normal); opacity: 0; background-color: var(--color-medical-bg);">
+          <p style="padding: 14px 20px 16px 20px; color: var(--color-text-light); font-size: 0.875rem; line-height: 1.6; margin: 0;">
+            Bạn nên liên hệ tư vấn ngay khi phát hiện trễ kinh kèm kết quả que thử thai 2 vạch. Việc được hướng dẫn siêu âm sớm giúp xác định vị trí thai và phương pháp can thiệp phù hợp.
+          </p>
         </div>
       </div>
 
-      <!-- FAQ Item -->
-      <div class="skmd-faq-item">
-        <button class="skmd-faq-item__header" aria-expanded="false">
-          <span>Chi phí cắt trĩ là bao nhiêu? Có phát sinh không?</span>
-          <svg class="skmd-faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); margin-bottom: 12px; background-color: var(--color-white); overflow: hidden;">
+        <button class="skmd-faq-item__header" aria-expanded="false" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; text-align: left; background: none; border: none; color: var(--color-text-main); font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color var(--transition-fast);">
+          <span>2. Thông tin cá nhân của tôi có được bảo mật không?</span>
+          <span class="skmd-faq-item__icon" style="flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; margin-left: 12px; transition: transform var(--transition-normal); color: var(--color-text-muted);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
         </button>
-        <div class="skmd-faq-item__content">
-          <div class="skmd-faq-item__body">
-            Chi phí cắt trĩ phụ thuộc vào tình trạng bệnh (độ 1, 2, 3, 4) và phương pháp áp dụng. Tại phòng khám, mọi chi phí đều được bác sĩ tư vấn công khai, minh bạch trước khi điều trị và cam kết không phát sinh thêm.
-          </div>
+        <div class="skmd-faq-item__body" style="height: 0; overflow: hidden; transition: height var(--transition-normal), opacity var(--transition-normal); opacity: 0; background-color: var(--color-medical-bg);">
+          <p style="padding: 14px 20px 16px 20px; color: var(--color-text-light); font-size: 0.875rem; line-height: 1.6; margin: 0;">
+            Thông tin tư vấn được bảo mật tuyệt đối 100%. Cuộc trao đổi chỉ phục vụ mục đích tư vấn sức khỏe cá nhân và không bị lưu giữ public hay tiết lộ cho bên thứ ba.
+          </p>
         </div>
       </div>
 
-      <!-- FAQ Item -->
-      <div class="skmd-faq-item">
-        <button class="skmd-faq-item__header" aria-expanded="false">
-          <span>Sau khi cắt trĩ bao lâu thì lành hoàn toàn?</span>
-          <svg class="skmd-faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); margin-bottom: 12px; background-color: var(--color-white); overflow: hidden;">
+        <button class="skmd-faq-item__header" aria-expanded="false" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; text-align: left; background: none; border: none; color: var(--color-text-main); font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color var(--transition-fast);">
+          <span>3. Phương pháp nào được ưu tiên lựa chọn?</span>
+          <span class="skmd-faq-item__icon" style="flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; margin-left: 12px; transition: transform var(--transition-normal); color: var(--color-text-muted);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
         </button>
-        <div class="skmd-faq-item__content">
-          <div class="skmd-faq-item__body">
-            Với công nghệ xâm lấn tối thiểu, bệnh nhân chỉ cần nghỉ ngơi tại phòng khám 1-2 tiếng là có thể về nhà. Vết thương thường phục hồi cơ bản sau 1 tuần và lành hoàn toàn sau 3-4 tuần tùy cơ địa.
-          </div>
+        <div class="skmd-faq-item__body" style="height: 0; overflow: hidden; transition: height var(--transition-normal), opacity var(--transition-normal); opacity: 0; background-color: var(--color-medical-bg);">
+          <p style="padding: 14px 20px 16px 20px; color: var(--color-text-light); font-size: 0.875rem; line-height: 1.6; margin: 0;">
+            Phương pháp được chỉ định phụ thuộc hoàn toàn vào kết quả siêu âm kiểm tra tuổi thai và thể trạng của bạn. Bác sĩ chuyên khoa sẽ hướng dẫn cụ thể phương pháp an toàn nhất.
+          </p>
         </div>
       </div>
 
     </div>
+
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqHeaders = document.querySelectorAll('.skmd-faq-item__header');
+      faqHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const body = header.nextElementSibling;
+          const isOpen = header.getAttribute('aria-expanded') === 'true';
+          const icon = header.querySelector('.skmd-faq-item__icon');
+          
+          if (!isOpen) {
+            header.setAttribute('aria-expanded', 'true');
+            header.style.backgroundColor = 'var(--color-soft-blue)';
+            body.style.height = body.scrollHeight + 'px';
+            body.style.opacity = '1';
+            icon.style.transform = 'rotate(180deg)';
+            icon.style.color = 'var(--color-primary)';
+          } else {
+            header.setAttribute('aria-expanded', 'false');
+            header.style.backgroundColor = 'transparent';
+            body.style.height = '0';
+            body.style.opacity = '0';
+            icon.style.transform = 'rotate(0deg)';
+            icon.style.color = 'var(--color-text-muted)';
+          }
+        });
+      });
+    });
+  </script>
 </section>
+
+

@@ -89,11 +89,12 @@ async function runBuildPipeline() {
     let cmsArticles = [];
     let latestArticlesHtml = { featured: '', smalls: '' };
     const articlesByCategory = {
-      'tri': { name: 'Trĩ', slug: 'tri', articles: [] },
-      'tri-noi': { name: 'Trĩ nội', slug: 'tri-noi', articles: [] },
-      'tri-ngoai': { name: 'Trĩ ngoại', slug: 'tri-ngoai', articles: [] },
-      'tri-hon-hop': { name: 'Trĩ hỗn hợp', slug: 'tri-hon-hop', articles: [] },
-      'ro-hau-mon': { name: 'Rò hậu môn', slug: 'ro-hau-mon', articles: [] },
+      'benh-co-tu-cung': { name: 'Bệnh cổ tử cung', slug: 'benh-co-tu-cung', articles: [] },
+      'benh-kinh-nguyet': { name: 'Bệnh kinh nguyệt', slug: 'benh-kinh-nguyet', articles: [] },
+      'benh-tu-cung': { name: 'Bệnh tử cung', slug: 'benh-tu-cung', articles: [] },
+      'pha-thai-an-toan': { name: 'Phá thai an toàn', slug: 'pha-thai-an-toan', articles: [] },
+      'tham-my-phu-khoa': { name: 'Thẩm mỹ phụ khoa', slug: 'tham-my-phu-khoa', articles: [] },
+      'viem-phu-khoa': { name: 'Viêm phụ khoa', slug: 'viem-phu-khoa', articles: [] },
       'kien-thuc': { name: 'Tất cả bài viết', slug: 'kien-thuc', articles: [] },
     };
 
@@ -103,17 +104,18 @@ async function runBuildPipeline() {
         Logger.info('Orchestrator', `Đã tìm thấy ${cmsArticles.length} bài viết từ Hygraph CMS.`);
         
         const catSlugMap = {
-          'tri': 'tri',
-          'tri_noi': 'tri-noi',
-          'tri_ngoai': 'tri-ngoai',
-          'tri_hon_hop': 'tri-hon-hop',
-          'ro_hau_mon': 'ro-hau-mon'
+          'benh_co_tu_cung': 'benh-co-tu-cung',
+          'benh_kinh_nguyet': 'benh-kinh-nguyet',
+          'benh_tu_cung': 'benh-tu-cung',
+          'pha_thai_an_toan': 'pha-thai-an-toan',
+          'tham_my_phu_khoa': 'tham-my-phu-khoa',
+          'viem_phu_khoa': 'viem-phu-khoa'
         };
         
         // Categorize articles
         for (const article of cmsArticles) {
-          const rawCat = article.danhMuc || 'tri';
-          const categorySlug = catSlugMap[rawCat] || 'tri';
+          const rawCat = article.danhMuc || 'pha_thai_an_toan';
+          const categorySlug = catSlugMap[rawCat] || 'pha-thai-an-toan';
           if (articlesByCategory[categorySlug]) {
             articlesByCategory[categorySlug].articles.push(article);
           }
@@ -121,8 +123,8 @@ async function runBuildPipeline() {
           articlesByCategory['kien-thuc'].articles.push(article);
         }
         
-        // Build Latest Articles HTML for Homepage (Carousel) and Sidebar
-        const latestArticles = [...cmsArticles].sort((a, b) => new Date(b.ngayDang) - new Date(a.ngayDang)).slice(0, 9);
+        // Build Latest Articles HTML for Homepage (Editorial Magazine) and Sidebar
+        const latestArticles = [...cmsArticles].sort((a, b) => new Date(b.ngayDang) - new Date(a.ngayDang)).slice(0, 5);
         if (latestArticles.length > 0) {
           latestArticlesHtml.sidebar = latestArticles.slice(0, 5).map(art => {
             const aSlug = art.slug || `bai-viet-${art.id}`;
@@ -136,30 +138,89 @@ async function runBuildPipeline() {
             `;
           }).join('');
 
-          latestArticlesHtml.carousel = latestArticles.map(art => {
-            const aSlug = art.slug || `bai-viet-${art.id}`;
-            const aDate = art.ngayDang ? new Date(art.ngayDang).toLocaleDateString('vi-VN') : '';
-            const rawImgUrl = (Array.isArray(art.anh) ? art.anh[0]?.url : art.anh?.url);
-            const aImg = rawImgUrl ? skmdRewriteUrl(rawImgUrl, aSlug) : 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&q=80&w=300';
-            const aCatName = articlesByCategory[catSlugMap[art.danhMuc || 'tri'] || 'tri']?.name || 'Tin Tức';
+          let editorialHtml = '';
+          const featured = latestArticles.length > 0 ? latestArticles[0] : null;
+          const secondaries = latestArticles.length > 1 ? latestArticles.slice(1, 4) : [];
+          
+          if (!featured) {
+            editorialHtml = `<div style="text-align: center; padding: 48px; border: 1px dashed var(--color-border); border-radius: var(--radius-lg); color: var(--color-text-muted);">Đang cập nhật bài viết mới...</div>`;
+          } else {
+            editorialHtml = `<div class="skmd-split skmd-split--60-40" style="gap: 32px; align-items: stretch;">`;
             
-            return `
-        <article class="skmd-article-card skmd-carousel-slide" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; box-sizing: border-box; background: white; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden;">
-          <a href="/${aSlug}" class="skmd-article__link" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-            <div class="skmd-article__image skmd-ratio skmd-ratio--4-3" style="width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative;">
-              <img src="${aImg}" alt="${art.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="skmd-article__content" style="padding: 16px;">
-              <div class="skmd-article__meta" style="margin-bottom: 8px;">
-                <span class="skmd-badge skmd-badge--outline" style="font-size: 0.75rem; padding: 2px 8px; border: 1px solid var(--color-primary); color: var(--color-primary); border-radius: 12px;">${aCatName}</span>
-                <span class="skmd-article__date" style="font-size: 0.75rem; color: var(--color-text-light); margin-left: 8px;">${aDate}</span>
-              </div>
-              <h4 class="skmd-article__title" style="font-size: 1.125rem; margin: 0 0 8px 0; color: var(--color-text-dark); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${art.title}</h4>
-              <p class="skmd-article__excerpt" style="font-size: 0.875rem; color: var(--color-text-main); margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">${art.tomtat || ''}</p>
-            </div>
-          </a>
-        </article>`;
-          }).join('');
+            // Featured Article (Left 60%)
+            const fSlug = featured.slug || `bai-viet-${featured.id || '1'}`;
+            const fDate = featured.ngayDang ? new Date(featured.ngayDang).toLocaleDateString('vi-VN') : '';
+            const fRawImgUrl = (Array.isArray(featured.anh) ? featured.anh[0]?.url : featured.anh?.url);
+            const fImg = fRawImgUrl ? skmdRewriteUrl(fRawImgUrl, fSlug) : 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&q=80&w=800';
+            const fCatName = articlesByCategory[catSlugMap[featured.danhMuc || 'pha_thai_an_toan'] || 'pha-thai-an-toan']?.name || 'Tin Tức';
+            const fExcerpt = featured.tomtat || featured.seoDescription || '';
+            
+            editorialHtml += `
+            <div style="flex: 1; min-width: 300px;">
+              <article style="background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: box-shadow var(--transition-fast);">
+                <a href="/${fSlug}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; flex-grow: 1;">
+                  <img src="${fImg}" alt="${featured.title || 'Featured Article'}" style="width: 100%; height: 320px; object-fit: cover;">
+                  <div style="padding: 32px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                      <span style="font-size: 0.75rem; padding: 4px 12px; background-color: var(--color-soft-rose); color: var(--color-primary-dark); border-radius: var(--radius-full); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">${fCatName}</span>
+                      <span style="font-size: 0.875rem; color: var(--color-text-light);">${fDate}</span>
+                    </div>
+                    <h3 style="font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--color-primary-dark); margin-bottom: 16px; line-height: 1.3;">${featured.title || 'Đang cập nhật'}</h3>
+                    <p style="font-size: 1.125rem; color: var(--color-text-main); line-height: 1.6; margin: 0 0 24px 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1;">${fExcerpt}</p>
+                    
+                    ${(featured.tacGia || featured.kiemDuyet || featured.ngayCapNhat) ? `
+                    <!-- Medical Credibility Layer -->
+                    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; gap: 24px; font-size: 0.875rem;">
+                      ${featured.tacGia ? `
+                      <div style="display: flex; flex-direction: column; gap: 4px;">
+                        <span style="color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem;">Biên soạn bởi</span>
+                        <span style="color: var(--color-text-main); font-weight: 600;">${featured.tacGia}</span>
+                      </div>` : ''}
+                      
+                      ${featured.kiemDuyet ? `
+                      <div style="display: flex; flex-direction: column; gap: 4px;">
+                        <span style="color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem;">Kiểm duyệt chuyên môn</span>
+                        <span style="color: var(--color-primary-dark); font-weight: 600;">${featured.kiemDuyet}</span>
+                      </div>` : ''}
+                    </div>
+                    ` : ''}
+                  </div>
+                </a>
+              </article>
+            </div>`;
+
+            // Secondary Articles (Right 40%)
+            editorialHtml += `<div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 24px;">`;
+            if (secondaries.length > 0) {
+              secondaries.forEach(art => {
+                const aSlug = art.slug || `bai-viet-${art.id || '2'}`;
+                const aDate = art.ngayDang ? new Date(art.ngayDang).toLocaleDateString('vi-VN') : '';
+                const aRawImgUrl = (Array.isArray(art.anh) ? art.anh[0]?.url : art.anh?.url);
+                const aImg = aRawImgUrl ? skmdRewriteUrl(aRawImgUrl, aSlug) : 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&q=80&w=300';
+                const aCatName = articlesByCategory[catSlugMap[art.danhMuc || 'pha_thai_an_toan'] || 'pha-thai-an-toan']?.name || 'Tin Tức';
+                
+                editorialHtml += `
+                <article style="background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex;">
+                  <a href="/${aSlug}" style="text-decoration: none; color: inherit; display: flex; width: 100%;">
+                    <img src="${aImg}" alt="${art.title || 'Article'}" style="width: 140px; height: 140px; object-fit: cover;">
+                    <div style="padding: 24px; flex-grow: 1;">
+                      <div style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 0.75rem; color: var(--color-warm-burgundy); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">${aCatName}</span>
+                        <span style="color: var(--color-border);">|</span>
+                        <span style="font-size: 0.875rem; color: var(--color-text-light);">${aDate}</span>
+                      </div>
+                      <h4 style="font-size: 1.125rem; color: var(--color-text-main); margin: 0; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${art.title || 'Đang cập nhật'}</h4>
+                    </div>
+                  </a>
+                </article>`;
+              });
+            } else {
+              editorialHtml += `<div style="flex: 1; background: var(--color-bg-offset); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); font-size: 0.875rem;">Đang cập nhật thêm bài viết...</div>`;
+            }
+            editorialHtml += `</div></div>`;
+          }
+          
+          latestArticlesHtml.editorial = editorialHtml;
         }
       }
     } catch (err) {
@@ -236,7 +297,7 @@ async function runBuildPipeline() {
         .replace(/<!--\s*INJECT_HOTLINE\s*-->/g, clinicConfig.hotlineDisplay)
         .replace(/<!--\s*INJECT_ADDRESS\s*-->/g, clinicConfig.address.full)
         .replace(/<!--\s*INJECT_ZALO\s*-->/g, clinicConfig.zaloLink)
-        .replace(/<!--\s*INJECT_CAROUSEL_ARTICLES\s*-->/g, latestArticlesHtml.carousel || '')
+        .replace(/<!--\s*INJECT_EDITORIAL_ARTICLES\s*-->/g, latestArticlesHtml.editorial || '<!-- NO_ARTICLES_FALLBACK -->')
         .replace(/<!--\s*INJECT_SEO_TAGS\s*-->/g, SEOManager.generateMetaTags(pageData, pageSchemas));
       return compiledHtml;
     }
@@ -313,15 +374,16 @@ async function runBuildPipeline() {
                 createdAt: article.ngayDang,
               };
               
-              const rawCat = article.danhMuc || 'tri';
+              const rawCat = article.danhMuc || 'pha_thai_an_toan';
               const catSlugMap = {
-                'tri': 'tri',
-                'tri_noi': 'tri-noi',
-                'tri_ngoai': 'tri-ngoai',
-                'tri_hon_hop': 'tri-hon-hop',
-                'ro_hau_mon': 'ro-hau-mon'
+                'benh_co_tu_cung': 'benh-co-tu-cung',
+                'benh_kinh_nguyet': 'benh-kinh-nguyet',
+                'benh_tu_cung': 'benh-tu-cung',
+                'pha_thai_an_toan': 'pha-thai-an-toan',
+                'tham_my_phu_khoa': 'tham-my-phu-khoa',
+                'viem_phu_khoa': 'viem-phu-khoa'
               };
-              const categorySlug = catSlugMap[rawCat] || 'tri';
+              const categorySlug = catSlugMap[rawCat] || 'pha-thai-an-toan';
               
               let articleHtml = singleTemplate;
               
@@ -344,7 +406,7 @@ async function runBuildPipeline() {
 
               articleHtml = articleHtml
                 .replace(/<!-- INJECT_ARTICLE_TITLE -->/g, article.title || '')
-                .replace(/<!-- INJECT_ARTICLE_CATEGORY -->/g, articlesByCategory[categorySlug]?.name || 'Trĩ')
+                .replace(/<!-- INJECT_ARTICLE_CATEGORY -->/g, articlesByCategory[categorySlug]?.name || 'Phá thai an toàn')
                 .replace(/<!-- INJECT_CATEGORY_SLUG -->/g, categorySlug)
                 .replace(/<!-- INJECT_ARTICLE_EXCERPT -->/g, article.tomtat || '')
                 .replace(/<!-- INJECT_ARTICLE_CONTENT -->/g, article.noiDung?.html || '')
@@ -463,7 +525,7 @@ async function runBuildPipeline() {
     // Step 5: Sitemap & Feed
     const pagesForSitemap = [];
     pagesForSitemap.push({ slug: 'index', updatedAt: new Date().toISOString(), title: siteConfig.name, description: siteConfig.description });
-    const allowedCategories = ['tri', 'tri-noi', 'tri-ngoai', 'tri-hon-hop', 'ro-hau-mon'];
+    const allowedCategories = ['benh-co-tu-cung', 'benh-kinh-nguyet', 'benh-tu-cung', 'pha-thai-an-toan', 'tham-my-phu-khoa', 'viem-phu-khoa'];
     for (const cat of allowedCategories) {
        pagesForSitemap.push({ slug: cat, updatedAt: new Date().toISOString(), title: cat, description: `Danh mục ${cat}` });
     }

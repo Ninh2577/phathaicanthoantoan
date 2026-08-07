@@ -1,78 +1,65 @@
-// config/schema.config.js
+// config/schema.config.js — Satellite Medical Content Site
 import { siteConfig } from './site.config.js';
-import { clinicConfig } from './clinic.config.js';
 
 export const schemaConfig = {
-  // 1. Versioning & Namespace (Tránh xung đột @id giữa các site vệ tinh)
+  // 1. Versioning & Namespace
   versioning: {
-    schemaVersion: "13.0", // Dựa trên schema.org version
-    platformVersion: "2.0.0", // Enterprise Multi-site Platform
+    schemaVersion: "13.0",
+    platformVersion: "2.0.0",
     generator: "Skedify Medical Enterprise Generator",
     buildNumber: process.env.VERCEL_GIT_COMMIT_SHA || "local-build",
-    siteNamespace: siteConfig.url // Base URL dùng làm Namespace cho @id
+    siteNamespace: siteConfig.url
   },
 
-  // 2. Feature Flags (Bật tắt từng loại Schema theo ý muốn)
+  // 2. Feature Flags — SATELLITE ISOLATION APPLIED
   features: {
-    enableOrganization: true,
-    enableMedicalClinic: true,
-    enableWebSite: true,
-    enableLocalBusiness: true,
-    enableSearchAction: true,
-    enableBreadcrumb: true,
-    enableFAQ: true,
-    enableArticle: true,
-    enableMedicalWebPage: true,
-    enableKnowledgeGraphPerson: true,
-    enableImageObject: true
+    enableOrganization: true,     // OK — content brand organization
+    enableMedicalClinic: false,   // OFF — satellite isolation (no clinic identity)
+    enableWebSite: true,          // OK — content website
+    enableLocalBusiness: false,   // OFF — satellite isolation (no local business)
+    enableSearchAction: true,     // OK — site search
+    enableBreadcrumb: true,       // OK — navigation
+    enableFAQ: true,              // OK — educational content
+    enableArticle: true,          // OK — medical articles
+    enableMedicalWebPage: true,   // OK — medical info pages
+    enableKnowledgeGraphPerson: false, // OFF — no personal data
+    enableImageObject: true       // OK — image metadata
   },
 
-  // 3. Entity Registry (Dữ liệu tĩnh dùng chung cho hệ sinh thái)
+  // 3. Entity Registry — Content Brand (NOT clinic)
   registry: {
     publisher: {
-      name: siteConfig.name,
+      name: siteConfig.name,      // "Sức Khỏe Phụ Khoa"
       logoUrl: siteConfig.url + siteConfig.logo,
-      foundingDate: "2015-01-01",
+      foundingDate: "2024-01-01",
       socialLinks: []
+      // No clinic contact info
     },
     medicalSpecialty: [
-      "Gastroenterologic",
-      "Surgical"
+      "Obstetric",
+      "Gynecologic"
     ],
-    availableLanguages: ["Vietnamese", "English"],
-    currency: "VND",
-    priceRange: "$$", // SEO Indicator
-    country: "VN",
-    geo: {
-      latitude: 10.0278,
-      longitude: 105.7721
-    },
-    openingHoursSpecification: [
-      {
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        opens: "08:00",
-        closes: "20:00"
-      }
-    ]
+    availableLanguages: ["Vietnamese"],
+    // NO: currency, priceRange, geo, openingHours, address, telephone
   },
 
-  // 4. Default Schema Values (Dự phòng khi CMS thiếu dữ liệu)
+  // 4. Default Schema Values
   defaults: {
     author: {
-      name: "Đội ngũ chuyên gia y tế Cắt Trĩ Cần Thơ",
-      jobTitle: "Medical Professional",
+      name: "Ban biên tập Sức Khỏe Phụ Khoa",
+      jobTitle: "Medical Content Editor",
       sameAs: [siteConfig.url]
     },
     reviewer: {
-      name: "Ban cố vấn y khoa",
+      name: "Ban kiểm duyệt y khoa",
       jobTitle: "Medical Reviewer",
       sameAs: [siteConfig.url]
     },
     image: {
-      url: `${siteConfig.url}/assets/images/default-schema.jpg`,
+      url: `${siteConfig.url}/assets/images/hero-editorial.jpg`,
       width: 1200,
       height: 630,
-      caption: "Hình ảnh y khoa minh họa"
+      caption: "Hình ảnh minh họa sức khỏe phụ khoa"
     }
   }
 };

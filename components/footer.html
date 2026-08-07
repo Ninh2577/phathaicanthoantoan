@@ -1,71 +1,263 @@
-<!-- Enterprise Footer Component (Silo Link Structure) -->
-<footer class="skmd-footer">
-  <div class="skmd-container skmd-footer__main">
-    <div class="skmd-grid-4">
-      
-      <!-- Col 1: Brand & Desc -->
-      <div class="skmd-footer__col">
-        <a href="/" class="skmd-logo skmd-logo--footer" aria-label="Trang chủ">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="skmd-logo__icon" aria-hidden="true">
-            <path d="M12 2L12 22M2 12L22 12" stroke="var(--color-primary)" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="12" cy="12" r="10" stroke="var(--color-primary-light)" stroke-width="2" opacity="0.3"/>
-          </svg>
-          <span class="skmd-logo__text"><!-- INJECT_BRAND --></span>
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER — Sức Khỏe Phụ Khoa — Medical Content Hub
+     Satellite Website Isolation: NO phone, NO address, NO clinic info
+     ═══════════════════════════════════════════════════════════════ -->
+<footer class="skmd-footer-editorial" role="contentinfo">
+  <div class="skmd-container">
+
+    <!-- ── Main Footer Grid ── -->
+    <div class="skmd-footer-editorial__grid">
+
+      <!-- Col 1: Brand & Identity -->
+      <div class="skmd-footer-editorial__brand">
+        <a href="/" class="skmd-logo skmd-footer__logo-link" aria-label="Sức Khỏe Phụ Khoa — Trang chủ">
+          <div class="skmd-logo__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <span class="skmd-logo__name">Sức Khỏe Phụ Khoa</span>
         </a>
-        <p class="skmd-footer__desc">
-          <!-- INJECT_SITE_DESC --> Cung cấp các thông tin y khoa chính thống và giải pháp điều trị bệnh lý hậu môn trực tràng hiện đại nhất.
+
+        <p class="skmd-footer-editorial__desc">
+          Nền tảng thông tin và giáo dục sức khỏe phụ khoa. Cung cấp kiến thức y khoa dễ hiểu, có hệ thống về các bệnh lý phụ khoa, kinh nguyệt, cổ tử cung và sức khỏe sinh sản.
         </p>
+
+        <!-- Content Editorial Badge -->
+        <div class="skmd-footer-editorial__badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>Nội dung giáo dục sức khỏe</span>
+        </div>
       </div>
 
-      <!-- Col 2: Categories -->
-      <div class="skmd-footer__col">
-        <h3 class="skmd-footer__title">Chuyên Khoa</h3>
-        <ul class="skmd-footer__list">
-          <li><a href="/tri-noi">Bệnh Trĩ Nội</a></li>
-          <li><a href="/tri-ngoai">Bệnh Trĩ Ngoại</a></li>
-          <li><a href="/tri-hon-hop">Bệnh Trĩ Hỗn Hợp</a></li>
-          <li><a href="/ro-hau-mon">Rò Hậu Môn</a></li>
-          <li><a href="/404">Nứt Kẽ Hậu Môn</a></li>
-          <li><a href="/404">Polyp Hậu Môn</a></li>
+      <!-- Col 2: Chuyên Mục -->
+      <div class="skmd-footer-editorial__col">
+        <h3 class="skmd-footer-editorial__col-title">Chuyên Mục</h3>
+        <ul class="skmd-footer-editorial__list" role="list">
+          <li><a href="/benh-co-tu-cung">Bệnh cổ tử cung</a></li>
+          <li><a href="/benh-kinh-nguyet">Bệnh kinh nguyệt</a></li>
+          <li><a href="/benh-tu-cung">Bệnh tử cung</a></li>
+          <li><a href="/pha-thai-an-toan">Phá thai an toàn</a></li>
+          <li><a href="/tham-my-phu-khoa">Thẩm mỹ phụ khoa</a></li>
+          <li><a href="/viem-phu-khoa">Viêm phụ khoa</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Knowledge Base -->
-      <div class="skmd-footer__col">
-        <h3 class="skmd-footer__title">Kiến Thức Y Khoa</h3>
-        <ul class="skmd-footer__list">
-          <li><a href="/404">Triệu Chứng Bệnh</a></li>
-          <li><a href="/404">Nguyên Nhân Bệnh</a></li>
-          <li><a href="/404">Phương Pháp Điều Trị</a></li>
-          <li><a href="/404">Cách Phòng Ngừa</a></li>
-          <li><a href="/404">Chi Phí Điều Trị</a></li>
+      <!-- Col 3: Thông Tin -->
+      <div class="skmd-footer-editorial__col">
+        <h3 class="skmd-footer-editorial__col-title">Thông Tin</h3>
+        <ul class="skmd-footer-editorial__list" role="list">
+          <li><a href="/ve-website">Về website</a></li>
+          <li><a href="/chinh-sach-bien-tap">Chính sách biên tập</a></li>
+          <li><a href="/chinh-sach-y-khoa">Chính sách y khoa</a></li>
+          <li><a href="/chinh-sach-bao-mat">Chính sách bảo mật</a></li>
+          <li><a href="/dieu-khoan">Điều khoản sử dụng</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Policies -->
-      <div class="skmd-footer__col">
-        <h3 class="skmd-footer__title">Chính Sách & Hỗ Trợ</h3>
-        <ul class="skmd-footer__list">
-          <li><a href="/404">Hướng Dẫn Bệnh Nhân</a></li>
-          <li><a href="/404">Câu Hỏi Thường Gặp</a></li>
-          <li><a href="/chinh-sach-bao-mat">Chính Sách Bảo Mật</a></li>
-          <li><a href="/dieu-khoan">Điều Khoản Sử Dụng</a></li>
-          <li><a href="/404">Quy Trình Khám Bệnh</a></li>
+      <!-- Col 4: Medical Trust -->
+      <div class="skmd-footer-editorial__col">
+        <h3 class="skmd-footer-editorial__col-title">Tiêu Chuẩn Y Khoa</h3>
+        <ul class="skmd-footer-editorial__list" role="list">
+          <li><a href="/tieu-chuan-bien-tap">Tiêu chuẩn biên tập</a></li>
+          <li><a href="/kiem-duyet-y-khoa">Kiểm duyệt y khoa</a></li>
+          <li><a href="/nguon-tham-khao">Nguồn tham khảo</a></li>
+          <li><a href="/kien-thuc">Tất cả bài viết</a></li>
         </ul>
       </div>
 
     </div>
-  </div>
 
-  <!-- Bottom Bar -->
-  <div class="skmd-footer__bottom">
-    <div class="skmd-container skmd-footer__bottom-inner">
-      <p class="skmd-footer__copyright">
-        &copy; 2026 <!-- INJECT_BRAND -->. Tất cả các quyền được bảo lưu. Các thông tin trên website chỉ mang tính chất tham khảo, không thay thế cho chẩn đoán y khoa.
+    <!-- ── Medical Disclaimer ── -->
+    <div class="skmd-footer-editorial__disclaimer" role="note" aria-label="Lưu ý y khoa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:2px;">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <p>
+        <strong>Lưu ý:</strong> Nội dung trên website được cung cấp nhằm mục đích tham khảo và giáo dục sức khỏe, không thay thế cho việc thăm khám, chẩn đoán hoặc điều trị trực tiếp bởi nhân viên y tế có chuyên môn. Khi có vấn đề sức khỏe, hãy tham khảo ý kiến bác sĩ hoặc chuyên gia y tế.
       </p>
-      <div class="skmd-footer__legal">
-        <a href="/sitemap.xml">Sitemap</a>
-      </div>
     </div>
+
+    <!-- ── Bottom Bar ── -->
+    <div class="skmd-footer-editorial__bottom">
+      <p class="skmd-footer-editorial__copyright">
+        &copy; <span id="current-year">2026</span> Sức Khỏe Phụ Khoa. Website thông tin y khoa giáo dục.
+      </p>
+      <nav aria-label="Liên kết pháp lý">
+        <ul class="skmd-footer-editorial__legal" role="list">
+          <li><a href="/chinh-sach-bao-mat">Bảo mật</a></li>
+          <li><a href="/dieu-khoan">Điều khoản</a></li>
+          <li><a href="/tieu-chuan-bien-tap">Biên tập</a></li>
+        </ul>
+      </nav>
+    </div>
+
   </div>
 </footer>
+
+<style>
+/* ─── Footer Editorial Layout ────────────────────────────────────── */
+.skmd-footer-editorial {
+  background-color: var(--color-primary-dark);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 60px 0 0;
+  margin-top: 0;
+}
+
+.skmd-footer-editorial__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 640px) {
+  .skmd-footer-editorial__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skmd-footer-editorial__grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+/* ─── Brand Column ───────────────────────────────────────────────── */
+.skmd-footer__logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+.skmd-footer__logo-link .skmd-logo__icon {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+}
+.skmd-footer__logo-link .skmd-logo__name {
+  color: var(--color-white);
+  font-size: 1.0625rem;
+}
+
+.skmd-footer-editorial__desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+.skmd-footer-editorial__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ─── Column Links ───────────────────────────────────────────────── */
+.skmd-footer-editorial__col-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.skmd-footer-editorial__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skmd-footer-editorial__list a {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  line-height: 1.4;
+}
+
+.skmd-footer-editorial__list a:hover {
+  color: var(--color-white);
+}
+
+/* ─── Disclaimer ─────────────────────────────────────────────────── */
+.skmd-footer-editorial__disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 24px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 32px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.skmd-footer-editorial__disclaimer svg {
+  color: var(--color-secondary);
+}
+
+.skmd-footer-editorial__disclaimer p {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── Bottom Bar ─────────────────────────────────────────────────── */
+.skmd-footer-editorial__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0 28px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .skmd-footer-editorial__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.skmd-footer-editorial__copyright {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.skmd-footer-editorial__legal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.skmd-footer-editorial__legal a {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.skmd-footer-editorial__legal a:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+</style>

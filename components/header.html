@@ -1,70 +1,534 @@
-<!-- Enterprise Header Component -->
-<header class="skmd-header" id="platform-header">
+<!-- ═══════════════════════════════════════════════════════════════
+     HEADER — Sức Khỏe Phụ Khoa — Medical Editorial Navigation
+     Satellite Website Isolation: NO phone, NO address, NO booking
+     ═══════════════════════════════════════════════════════════════ -->
 
-  <!-- Main Navbar -->
-  <div class="skmd-header__main">
-    <div class="skmd-container skmd-header__main-inner">
-      <!-- Logo -->
-      <a href="/" class="skmd-logo" aria-label="Trang chủ">
-        <!-- SVG Placeholder Logo for Medical (Blue Cross style) -->
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="skmd-logo__icon" aria-hidden="true">
-          <path d="M12 2L12 22M2 12L22 12" stroke="var(--color-primary)" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="12" cy="12" r="10" stroke="var(--color-primary-light)" stroke-width="2" opacity="0.3"/>
+<!-- Scroll Sentinel for sticky header shadow -->
+<div id="scroll-sentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;"></div>
+
+<header class="skmd-header" role="banner">
+  <div class="skmd-container skmd-header__inner">
+
+    <!-- ── Logo ── -->
+    <a href="/" class="skmd-logo skmd-header__logo" aria-label="Sức Khỏe Phụ Khoa — Trang chủ">
+      <div class="skmd-logo__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
         </svg>
-        <span class="skmd-logo__text"><!-- INJECT_BRAND --></span>
-      </a>
-
-      <!-- Desktop Menu -->
-      <nav class="skmd-nav-desktop" aria-label="Menu chính">
-        <ul class="skmd-menu">
-          <li><a href="/" class="skmd-menu__link">Trang chủ</a></li>
-          <li><a href="/tri" class="skmd-menu__link">Trĩ</a></li>
-          <li><a href="/tri-noi" class="skmd-menu__link">Trĩ nội</a></li>
-          <li><a href="/tri-ngoai" class="skmd-menu__link">Trĩ ngoại</a></li>
-          <li><a href="/tri-hon-hop" class="skmd-menu__link">Trĩ hỗn hợp</a></li>
-          <li><a href="/ro-hau-mon" class="skmd-menu__link">Rò hậu môn</a></li>
-        </ul>
-      </nav>
-
-      <!-- CTA & Mobile Toggle -->
-      <div class="skmd-header__actions">
-        <a href="/kien-thuc" class="skmd-btn skmd-btn--primary skmd-header__cta">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-          Khám phá kiến thức
-        </a>
-        <button class="skmd-menu-toggle" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
-          <span class="skmd-menu-toggle__line"></span>
-          <span class="skmd-menu-toggle__line"></span>
-          <span class="skmd-menu-toggle__line"></span>
-        </button>
       </div>
+      <div class="skmd-logo__text-group">
+        <span class="skmd-logo__name">Sức Khỏe Phụ Khoa</span>
+        <span class="skmd-logo__tagline">Thông Tin Y Khoa</span>
+      </div>
+    </a>
+
+    <!-- ── Desktop Navigation ── -->
+    <nav class="skmd-nav-desktop" aria-label="Chuyên mục chính">
+      <ul class="skmd-menu" role="list">
+        <li><a href="/benh-co-tu-cung" class="skmd-menu__link">Bệnh Cổ Tử Cung</a></li>
+        <li><a href="/benh-kinh-nguyet" class="skmd-menu__link">Bệnh Kinh Nguyệt</a></li>
+        <li><a href="/benh-tu-cung" class="skmd-menu__link">Bệnh Tử Cung</a></li>
+        <li><a href="/pha-thai-an-toan" class="skmd-menu__link">Phá Thai An Toàn</a></li>
+        <li><a href="/tham-my-phu-khoa" class="skmd-menu__link">Thẩm Mỹ Phụ Khoa</a></li>
+        <li><a href="/viem-phu-khoa" class="skmd-menu__link">Viêm Phụ Khoa</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── Header Actions ── -->
+    <div class="skmd-header__actions">
+      <!-- Search Toggle -->
+      <button
+        class="skmd-search-toggle skmd-header__icon-btn"
+        aria-label="Tìm kiếm"
+        aria-expanded="false"
+        aria-controls="search-panel"
+        type="button"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        class="skmd-menu-toggle"
+        aria-label="Mở menu điều hướng"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        type="button"
+      >
+        <span class="skmd-menu-toggle__bar" aria-hidden="true"></span>
+        <span class="skmd-menu-toggle__bar" aria-hidden="true"></span>
+        <span class="skmd-menu-toggle__bar" aria-hidden="true"></span>
+      </button>
     </div>
+
   </div>
 
-  <!-- Mobile Off-Canvas Menu -->
-  <div class="skmd-offcanvas" id="mobile-menu" aria-hidden="true">
-    <div class="skmd-offcanvas__backdrop" data-action="close-menu"></div>
-    <div class="skmd-offcanvas__panel">
-      <div class="skmd-offcanvas__header">
-        <span class="skmd-logo__text"><!-- INJECT_BRAND --></span>
-        <button class="skmd-offcanvas__close" aria-label="Đóng menu" data-action="close-menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <nav class="skmd-nav-mobile" aria-label="Menu di động">
-        <ul class="skmd-mobile-menu">
-          <li><a href="/" class="skmd-mobile-menu__link">Trang chủ</a></li>
-          <li><a href="/tri" class="skmd-mobile-menu__link">Trĩ</a></li>
-          <li><a href="/tri-noi" class="skmd-mobile-menu__link">Trĩ nội</a></li>
-          <li><a href="/tri-ngoai" class="skmd-mobile-menu__link">Trĩ ngoại</a></li>
-          <li><a href="/tri-hon-hop" class="skmd-mobile-menu__link">Trĩ hỗn hợp</a></li>
-          <li><a href="/ro-hau-mon" class="skmd-mobile-menu__link">Rò hậu môn</a></li>
-          <li><a href="/lien-he" class="skmd-mobile-menu__link">Liên hệ</a></li>
-        </ul>
-      </nav>
-      <div class="skmd-offcanvas__footer">
-        <a href="/kien-thuc" class="skmd-btn skmd-btn--outline skmd-btn--full">Khám phá kiến thức</a>
-      </div>
+  <!-- ── Search Panel ── -->
+  <div
+    class="skmd-search-panel"
+    id="search-panel"
+    role="search"
+    aria-label="Tìm kiếm bài viết"
+    aria-hidden="true"
+  >
+    <div class="skmd-container skmd-search-panel__inner">
+      <label for="search-input" class="skmd-sr-only">Tìm kiếm thông tin phụ khoa</label>
+      <input
+        type="search"
+        id="search-input"
+        class="skmd-search-input"
+        placeholder="Tìm kiếm: triệu chứng, bệnh lý, câu hỏi..."
+        autocomplete="off"
+      >
+      <button class="skmd-search-close skmd-header__icon-btn" type="button" aria-label="Đóng tìm kiếm">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MOBILE OFFCANVAS DRAWER
+     ═══════════════════════════════════════════════════════════════ -->
+<div
+  class="skmd-offcanvas"
+  id="mobile-drawer"
+  role="dialog"
+  aria-label="Menu điều hướng"
+  aria-modal="true"
+>
+  <!-- Backdrop -->
+  <div class="skmd-offcanvas__backdrop" aria-hidden="true"></div>
+
+  <!-- Panel -->
+  <div class="skmd-offcanvas__panel">
+    <!-- Drawer Header -->
+    <div class="skmd-offcanvas__header">
+      <a href="/" class="skmd-logo" data-action="close-menu" aria-label="Sức Khỏe Phụ Khoa — Trang chủ">
+        <div class="skmd-logo__icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <span class="skmd-logo__name" style="font-size:1rem;">Sức Khỏe Phụ Khoa</span>
+      </a>
+      <button class="skmd-offcanvas__close" type="button" aria-label="Đóng menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Nav -->
+    <nav class="skmd-nav-mobile" aria-label="Menu điều hướng mobile">
+      <p class="skmd-drawer__section-label">Khám Phá Chuyên Mục</p>
+      <ul class="skmd-mobile-menu" role="list">
+        <li>
+          <a href="/benh-co-tu-cung" class="skmd-mobile-menu__link" data-action="close-menu">
+            <span class="skmd-mobile-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </span>
+            Bệnh Cổ Tử Cung
+          </a>
+        </li>
+        <li>
+          <a href="/benh-kinh-nguyet" class="skmd-mobile-menu__link" data-action="close-menu">
+            <span class="skmd-mobile-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </span>
+            Bệnh Kinh Nguyệt
+          </a>
+        </li>
+        <li>
+          <a href="/benh-tu-cung" class="skmd-mobile-menu__link" data-action="close-menu">
+            <span class="skmd-mobile-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </span>
+            Bệnh Tử Cung
+          </a>
+        </li>
+        <li>
+          <a href="/pha-thai-an-toan" class="skmd-mobile-menu__link" data-action="close-menu">
+            <span class="skmd-mobile-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </span>
+            Phá Thai An Toàn
+          </a>
+        </li>
+        <li>
+          <a href="/tham-my-phu-khoa" class="skmd-mobile-menu__link" data-action="close-menu">
+            <span class="skmd-mobile-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </span>
+            Thẩm Mỹ Phụ Khoa
+          </a>
+        </li>
+        <li>
+          <a href="/viem-phu-khoa" class="skmd-mobile-menu__link" data-action="close-menu">
+            <span class="skmd-mobile-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </span>
+            Viêm Phụ Khoa
+          </a>
+        </li>
+      </ul>
+
+      <!-- Divider -->
+      <hr class="skmd-drawer__divider" aria-hidden="true">
+
+      <!-- Info Links -->
+      <p class="skmd-drawer__section-label">Thông Tin</p>
+      <ul class="skmd-mobile-menu skmd-mobile-menu--secondary" role="list">
+        <li><a href="/ve-website" class="skmd-mobile-menu__link skmd-mobile-menu__link--secondary" data-action="close-menu">Về website</a></li>
+        <li><a href="/chinh-sach-bien-tap" class="skmd-mobile-menu__link skmd-mobile-menu__link--secondary" data-action="close-menu">Chính sách biên tập</a></li>
+        <li><a href="/chinh-sach-y-khoa" class="skmd-mobile-menu__link skmd-mobile-menu__link--secondary" data-action="close-menu">Chính sách y khoa</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<style>
+/* ─── Header Layout ─────────────────────────────────────────────── */
+.skmd-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background-color: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-normal);
+}
+.skmd-header.is-scrolled {
+  box-shadow: 0 2px 16px rgba(157, 56, 98, 0.08);
+}
+.skmd-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 16px;
+}
+
+/* ─── Logo ──────────────────────────────────────────────────────── */
+.skmd-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.skmd-logo__icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+.skmd-logo__text-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.skmd-logo__name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  letter-spacing: -0.01em;
+}
+.skmd-logo__tagline {
+  font-size: 0.6875rem;
+  color: var(--color-secondary-dark);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+@media (max-width: 360px) {
+  .skmd-logo__tagline { display: none; }
+}
+
+/* ─── Desktop Nav ───────────────────────────────────────────────── */
+.skmd-nav-desktop {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .skmd-nav-desktop { display: block; }
+}
+.skmd-menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.skmd-menu__link {
+  display: block;
+  color: var(--color-text-main);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  white-space: nowrap;
+}
+.skmd-menu__link:hover {
+  color: var(--color-primary);
+  background-color: var(--color-soft-rose);
+}
+.skmd-menu__link.active,
+.skmd-menu__link[aria-current="page"] {
+  color: var(--color-primary);
+  background-color: var(--color-soft-rose);
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .skmd-menu__link { font-size: 0.8125rem; padding: 6px 8px; }
+}
+
+/* ─── Header Actions ────────────────────────────────────────────── */
+.skmd-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.skmd-header__icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: none;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+.skmd-header__icon-btn:hover {
+  color: var(--color-primary);
+  background-color: var(--color-soft-rose);
+  border-color: var(--color-primary-light);
+}
+
+/* ─── Menu Toggle (mobile only) ─────────────────────────────────── */
+.skmd-menu-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.skmd-menu-toggle:hover {
+  background-color: var(--color-soft-rose);
+  border-color: var(--color-primary-light);
+}
+.skmd-menu-toggle__bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-text-main);
+  border-radius: 2px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+@media (min-width: 1024px) {
+  .skmd-menu-toggle { display: none; }
+}
+
+/* ─── Search Panel ──────────────────────────────────────────────── */
+.skmd-search-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--transition-normal), opacity var(--transition-normal);
+  opacity: 0;
+  border-top: 0px solid var(--color-border);
+  background-color: var(--color-bg-offset);
+}
+.skmd-search-panel.is-active {
+  max-height: 80px;
+  opacity: 1;
+  border-top-width: 1px;
+}
+.skmd-search-panel__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+.skmd-search-input {
+  flex: 1;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-text-main);
+  background: var(--color-white);
+  outline: none;
+  min-height: auto;
+  transition: border-color var(--transition-fast);
+}
+.skmd-search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(157, 56, 98, 0.1);
+}
+.skmd-search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ─── Offcanvas Drawer ──────────────────────────────────────────── */
+.skmd-offcanvas {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+  visibility: hidden;
+  pointer-events: none;
+}
+.skmd-offcanvas.is-active {
+  visibility: visible;
+  pointer-events: auto;
+}
+.skmd-offcanvas__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(31, 41, 55, 0.4);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.skmd-offcanvas.is-active .skmd-offcanvas__backdrop {
+  opacity: 1;
+}
+.skmd-offcanvas__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background-color: var(--color-white);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.skmd-offcanvas.is-active .skmd-offcanvas__panel {
+  transform: translateX(0);
+}
+.skmd-offcanvas__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.skmd-offcanvas__close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: none;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.skmd-offcanvas__close:hover {
+  background-color: var(--color-soft-rose);
+  color: var(--color-primary);
+  border-color: var(--color-primary-light);
+}
+
+/* ─── Drawer Nav ────────────────────────────────────────────────── */
+.skmd-nav-mobile {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+.skmd-drawer__section-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding: 0;
+}
+.skmd-mobile-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 0;
+}
+.skmd-mobile-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast);
+}
+.skmd-mobile-menu__link:hover {
+  color: var(--color-primary);
+}
+.skmd-mobile-menu__link:last-child,
+.skmd-mobile-menu li:last-child .skmd-mobile-menu__link {
+  border-bottom: none;
+}
+.skmd-mobile-menu__icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-soft-rose);
+  border-radius: 6px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+.skmd-drawer__divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 16px 0;
+}
+.skmd-mobile-menu--secondary .skmd-mobile-menu__link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+.skmd-mobile-menu--secondary .skmd-mobile-menu__link:hover {
+  color: var(--color-primary);
+}
+
+@media (min-width: 1024px) {
+  .skmd-offcanvas { display: none; }
+}
+</style>

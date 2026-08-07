@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- INJECT_SEO_TAGS -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/globals.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
@@ -11,96 +17,501 @@
   <link rel="stylesheet" href="/assets/css/home.css">
 </head>
 <body data-theme="blue">
-  
-  <!-- HEADER -->
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 1: HEADER
+       ════════════════════════════════════════════════════════════ -->
   <!-- INJECT_COMPONENT: components/header.html -->
 
-  <!-- MAIN CONTENT -->
   <main id="main-content">
-    
-    <!-- HERO SECTION -->
-    <!-- INJECT_COMPONENT: components/home/hero.html -->
-    
-    <!-- SOCIAL PROOF SECTION -->
-    <!-- INJECT_COMPONENT: components/home/social-proof.html -->
 
-    <!-- TECHNOLOGY SECTION (Replacing Doctor) -->
-    <!-- INJECT_COMPONENT: components/home/technology.html -->
-    
-    <!-- LATEST ARTICLES SECTION -->
-    <!-- INJECT_COMPONENT: components/home/latest-articles.html -->
-    
-    <!-- CATEGORY GRID SECTION -->
-    <!-- INJECT_COMPONENT: components/home/category-grid.html -->
-    
-    <!-- WHY CHOOSE US SECTION -->
-    <!-- INJECT_COMPONENT: components/home/why-choose-us.html -->
-    
-    <!-- FAQ SECTION -->
-    <!-- INJECT_COMPONENT: components/home/faq.html -->
+    <!-- ════════════════════════════════════════════════════════════
+         SECTION 2: HERO — Medical Editorial
+         ════════════════════════════════════════════════════════════ -->
+    <section class="skmd-hero-editorial" aria-labelledby="hero-title">
+      <div class="skmd-container">
+        <div class="skmd-hero-editorial__inner">
+
+          <!-- Left: Content -->
+          <div class="skmd-hero-editorial__content">
+            <div class="skmd-hero-editorial__label" aria-hidden="true">
+              <span class="skmd-hero-editorial__dot"></span>
+              Thông tin y khoa phụ khoa
+            </div>
+
+            <h1 class="skmd-hero-editorial__title" id="hero-title">
+              Chăm sóc sức khỏe phụ khoa từ những điều bạn cần hiểu
+            </h1>
+
+            <p class="skmd-hero-editorial__desc">
+              Cung cấp thông tin y khoa dễ hiểu, có hệ thống về các bệnh lý phụ khoa, kinh nguyệt, cổ tử cung, tử cung, viêm phụ khoa và sức khỏe sinh sản.
+            </p>
+
+            <div class="skmd-hero-editorial__actions">
+              <a href="/kien-thuc" class="skmd-btn skmd-btn--primary" id="hero-cta-explore">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12,8 16,12 12,16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                Khám phá kiến thức phụ khoa
+              </a>
+              <a href="#search-panel" class="skmd-btn skmd-btn--outline" id="hero-cta-search" onclick="document.querySelector('.skmd-search-toggle')?.click(); event.preventDefault();">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Tìm kiếm thông tin
+              </a>
+            </div>
+
+            <!-- Trust Micro-indicators -->
+            <div class="skmd-hero-editorial__trust">
+              <div class="skmd-hero-editorial__trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Nguồn thông tin có kiểm chứng</span>
+              </div>
+              <div class="skmd-hero-editorial__trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Cập nhật thường xuyên</span>
+              </div>
+              <div class="skmd-hero-editorial__trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Tôn trọng quyền riêng tư</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Hero Image -->
+          <div class="skmd-hero-editorial__image-wrap">
+            <div class="skmd-hero-editorial__image-frame" aria-hidden="true">
+              <img
+                src="/assets/images/hero-editorial.jpg"
+                alt="Thông tin sức khỏe phụ khoa — Người phụ nữ đọc sách tìm hiểu kiến thức y khoa"
+                class="skmd-hero-editorial__img"
+                width="600"
+                height="500"
+                fetchpriority="high"
+                decoding="async"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600&h=500';"
+              >
+              <!-- Floating info card -->
+              <div class="skmd-hero-editorial__floating-card" aria-hidden="true">
+                <div class="skmd-hero-editorial__floating-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <div>
+                  <div class="skmd-hero-editorial__floating-title">6 chuyên mục</div>
+                  <div class="skmd-hero-editorial__floating-sub">Bệnh lý phụ khoa đầy đủ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SECTION 3: QUICK CATEGORY — 6 Content Pillars
+         ════════════════════════════════════════════════════════════ -->
+    <section class="skmd-section skmd-category-section" aria-labelledby="category-heading">
+      <div class="skmd-container">
+        <div class="skmd-section-header">
+          <h2 class="skmd-section-title" id="category-heading">Bạn đang quan tâm vấn đề nào?</h2>
+          <p class="skmd-section-desc">Khám phá 6 nhóm chủ đề sức khỏe phụ khoa được tổ chức khoa học và cập nhật thường xuyên.</p>
+        </div>
+
+        <div class="skmd-category-grid" role="list">
+
+          <!-- Card 1 -->
+          <article class="skmd-cat-card" role="listitem">
+            <a href="/benh-co-tu-cung" class="skmd-cat-card__link" id="cat-co-tu-cung">
+              <div class="skmd-cat-card__icon-wrap skmd-cat-card__icon-wrap--rose" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <div class="skmd-cat-card__body">
+                <h3 class="skmd-cat-card__title">Bệnh Cổ Tử Cung</h3>
+                <p class="skmd-cat-card__desc">Thông tin về các bệnh lý và vấn đề liên quan đến cổ tử cung, HPV, polyp và các phương pháp sàng lọc.</p>
+              </div>
+              <div class="skmd-cat-card__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="skmd-cat-card" role="listitem">
+            <a href="/benh-kinh-nguyet" class="skmd-cat-card__link" id="cat-kinh-nguyet">
+              <div class="skmd-cat-card__icon-wrap skmd-cat-card__icon-wrap--teal" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="skmd-cat-card__body">
+                <h3 class="skmd-cat-card__title">Bệnh Kinh Nguyệt</h3>
+                <p class="skmd-cat-card__desc">Kiến thức về chu kỳ kinh, rối loạn kinh nguyệt, đau bụng kinh, rong kinh và các vấn đề liên quan.</p>
+              </div>
+              <div class="skmd-cat-card__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="skmd-cat-card" role="listitem">
+            <a href="/benh-tu-cung" class="skmd-cat-card__link" id="cat-tu-cung">
+              <div class="skmd-cat-card__icon-wrap skmd-cat-card__icon-wrap--rose" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="skmd-cat-card__body">
+                <h3 class="skmd-cat-card__title">Bệnh Tử Cung</h3>
+                <p class="skmd-cat-card__desc">Thông tin về các bệnh lý thường gặp ở tử cung như u xơ, lạc nội mạc, polyp tử cung và điều trị.</p>
+              </div>
+              <div class="skmd-cat-card__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="skmd-cat-card" role="listitem">
+            <a href="/pha-thai-an-toan" class="skmd-cat-card__link" id="cat-pha-thai">
+              <div class="skmd-cat-card__icon-wrap skmd-cat-card__icon-wrap--muted" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="skmd-cat-card__body">
+                <h3 class="skmd-cat-card__title">Phá Thai An Toàn</h3>
+                <p class="skmd-cat-card__desc">Kiến thức y khoa về phương pháp, những điều cần lưu ý và chăm sóc sức khỏe liên quan.</p>
+              </div>
+              <div class="skmd-cat-card__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="skmd-cat-card" role="listitem">
+            <a href="/tham-my-phu-khoa" class="skmd-cat-card__link" id="cat-tham-my">
+              <div class="skmd-cat-card__icon-wrap skmd-cat-card__icon-wrap--teal" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div class="skmd-cat-card__body">
+                <h3 class="skmd-cat-card__title">Thẩm Mỹ Phụ Khoa</h3>
+                <p class="skmd-cat-card__desc">Thông tin về chăm sóc, thẩm mỹ và sức khỏe vùng kín từ góc độ y khoa đáng tin cậy.</p>
+              </div>
+              <div class="skmd-cat-card__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="skmd-cat-card" role="listitem">
+            <a href="/viem-phu-khoa" class="skmd-cat-card__link" id="cat-viem-phu-khoa">
+              <div class="skmd-cat-card__icon-wrap skmd-cat-card__icon-wrap--rose" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div class="skmd-cat-card__body">
+                <h3 class="skmd-cat-card__title">Viêm Phụ Khoa</h3>
+                <p class="skmd-cat-card__desc">Kiến thức về viêm âm đạo, viêm âm hộ và các vấn đề viêm nhiễm phụ khoa, nguyên nhân và xử trí.</p>
+              </div>
+              <div class="skmd-cat-card__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SECTION 4: FEATURED MEDICAL CONTENT (from Hygraph)
+         ════════════════════════════════════════════════════════════ -->
+    <section class="skmd-section skmd-section--offset" aria-labelledby="featured-heading">
+      <div class="skmd-container">
+        <div class="skmd-section-header">
+          <h2 class="skmd-section-title" id="featured-heading">Kiến thức phụ khoa nổi bật</h2>
+          <p class="skmd-section-desc">Các bài viết y khoa được tuyển chọn và cập nhật thường xuyên từ các chuyên mục.</p>
+        </div>
+
+        <!-- INJECT_EDITORIAL_ARTICLES -->
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SECTION 5: MEDICAL TRUST
+         ════════════════════════════════════════════════════════════ -->
+    <section class="skmd-section skmd-trust-section" aria-labelledby="trust-heading">
+      <div class="skmd-container">
+        <div class="skmd-section-header skmd-section-header--center">
+          <h2 class="skmd-section-title" id="trust-heading">Thông tin y khoa được xây dựng với tiêu chí tin cậy</h2>
+          <p class="skmd-section-desc">Chúng tôi cam kết cung cấp nội dung giáo dục sức khỏe minh bạch, cập nhật và tôn trọng người đọc.</p>
+        </div>
+
+        <div class="skmd-trust-grid" role="list">
+          <div class="skmd-trust-card" role="listitem">
+            <div class="skmd-trust-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3 class="skmd-trust-card__title">Nguồn thông tin rõ ràng</h3>
+            <p class="skmd-trust-card__desc">Nội dung được xây dựng dựa trên kiến thức y khoa và các nguồn tham khảo khoa học được công nhận.</p>
+          </div>
+
+          <div class="skmd-trust-card" role="listitem">
+            <div class="skmd-trust-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3 class="skmd-trust-card__title">Kiểm duyệt y khoa</h3>
+            <p class="skmd-trust-card__desc">Các nội dung chuyên môn quan trọng được rà soát kỹ lưỡng để đảm bảo tính chính xác và phù hợp.</p>
+          </div>
+
+          <div class="skmd-trust-card" role="listitem">
+            <div class="skmd-trust-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+            </div>
+            <h3 class="skmd-trust-card__title">Cập nhật định kỳ</h3>
+            <p class="skmd-trust-card__desc">Nội dung được xem xét và cập nhật thường xuyên để phản ánh các kiến thức y khoa hiện hành nhất.</p>
+          </div>
+
+          <div class="skmd-trust-card" role="listitem">
+            <div class="skmd-trust-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="skmd-trust-card__title">Tôn trọng quyền riêng tư</h3>
+            <p class="skmd-trust-card__desc">Các chủ đề nhạy cảm được trình bày tế nhị, không phán xét và hoàn toàn tôn trọng người đọc.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SECTION 6: SYMPTOM DISCOVERY
+         ════════════════════════════════════════════════════════════ -->
+    <section class="skmd-section" aria-labelledby="symptom-heading">
+      <div class="skmd-container">
+        <div class="skmd-section-header">
+          <h2 class="skmd-section-title" id="symptom-heading">Bạn đang gặp triệu chứng nào?</h2>
+          <p class="skmd-section-desc">Chọn triệu chứng để tìm hiểu thêm thông tin y khoa liên quan. Đây là thông tin tham khảo, không thay thế chẩn đoán y tế.</p>
+        </div>
+
+        <div class="skmd-symptom-pills" role="navigation" aria-label="Triệu chứng phụ khoa thường gặp">
+          <a href="/benh-kinh-nguyet" class="skmd-symptom-pill" id="symptom-dau-bung-kinh">Đau bụng kinh dữ dội</a>
+          <a href="/benh-kinh-nguyet" class="skmd-symptom-pill" id="symptom-kinh-khong-deu">Kinh nguyệt không đều</a>
+          <a href="/benh-kinh-nguyet" class="skmd-symptom-pill" id="symptom-rong-kinh">Rong kinh</a>
+          <a href="/benh-kinh-nguyet" class="skmd-symptom-pill" id="symptom-tre-kinh">Trễ kinh</a>
+          <a href="/benh-tu-cung" class="skmd-symptom-pill" id="symptom-dau-vung-chau">Đau vùng chậu</a>
+          <a href="/viem-phu-khoa" class="skmd-symptom-pill" id="symptom-khi-hu">Khí hư bất thường</a>
+          <a href="/viem-phu-khoa" class="skmd-symptom-pill" id="symptom-ngua-vung-kin">Ngứa vùng kín</a>
+          <a href="/viem-phu-khoa" class="skmd-symptom-pill" id="symptom-dau-quan-he">Đau khi quan hệ</a>
+          <a href="/benh-co-tu-cung" class="skmd-symptom-pill" id="symptom-chay-mau">Chảy máu bất thường</a>
+          <a href="/benh-tu-cung" class="skmd-symptom-pill" id="symptom-u-xo">Nghi ngờ u xơ tử cung</a>
+          <a href="/benh-co-tu-cung" class="skmd-symptom-pill" id="symptom-hpv">Lo lắng về HPV</a>
+          <a href="/tham-my-phu-khoa" class="skmd-symptom-pill" id="symptom-suc-khoe-vung-kin">Sức khỏe vùng kín</a>
+        </div>
+
+        <p class="skmd-symptom-disclaimer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Thông tin được cung cấp nhằm mục đích giáo dục sức khỏe. Khi có triệu chứng bất thường, hãy tham khảo ý kiến bác sĩ.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SECTION 7: FAQ
+         ════════════════════════════════════════════════════════════ -->
+    <section class="skmd-section skmd-section--offset" id="faq" aria-labelledby="faq-heading">
+      <div class="skmd-container">
+        <div class="skmd-faq-layout">
+
+          <div class="skmd-faq-layout__header">
+            <h2 class="skmd-section-title" id="faq-heading">Những câu hỏi phụ khoa thường gặp</h2>
+            <p class="skmd-section-desc">Giải đáp các thắc mắc y khoa phổ biến về sức khỏe phụ nữ từ góc độ thông tin giáo dục.</p>
+          </div>
+
+          <div class="skmd-faq-accordion" role="list" aria-label="Câu hỏi thường gặp về phụ khoa">
+
+            <div class="skmd-faq__item" role="listitem">
+              <button
+                class="skmd-faq__trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-body-1"
+                id="faq-trigger-1"
+              >
+                <span class="skmd-faq__question">Kinh nguyệt bao nhiêu ngày là bình thường?</span>
+                <span class="skmd-faq__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </button>
+              <div class="skmd-faq__body" id="faq-body-1" role="region" aria-labelledby="faq-trigger-1">
+                <div class="skmd-faq__content">
+                  <p>Chu kỳ kinh nguyệt bình thường thường kéo dài từ <strong>21 đến 35 ngày</strong>, với thời gian hành kinh từ 2 đến 7 ngày. Lượng máu kinh trong khoảng 30–80ml mỗi chu kỳ được coi là bình thường. Nếu chu kỳ của bạn thường xuyên ngắn hơn 21 ngày hoặc dài hơn 35 ngày, hoặc hành kinh kéo dài hơn 7 ngày, bạn nên tham khảo ý kiến bác sĩ để được kiểm tra.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skmd-faq__item" role="listitem">
+              <button
+                class="skmd-faq__trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-body-2"
+                id="faq-trigger-2"
+              >
+                <span class="skmd-faq__question">Vì sao kinh nguyệt không đều?</span>
+                <span class="skmd-faq__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </button>
+              <div class="skmd-faq__body" id="faq-body-2" role="region" aria-labelledby="faq-trigger-2">
+                <div class="skmd-faq__content">
+                  <p>Kinh nguyệt không đều có thể do nhiều nguyên nhân bao gồm: <strong>thay đổi hormone</strong> (phổ biến nhất), căng thẳng, thay đổi cân nặng đột ngột, tập thể dục quá mức, hội chứng buồng trứng đa nang (PCOS), vấn đề tuyến giáp, hoặc các bệnh lý phụ khoa. Ở phụ nữ trẻ, kinh không đều trong 1–2 năm đầu sau khi có kinh lần đầu là điều bình thường. Nếu tình trạng kéo dài, hãy tham khảo ý kiến bác sĩ.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skmd-faq__item" role="listitem">
+              <button
+                class="skmd-faq__trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-body-3"
+                id="faq-trigger-3"
+              >
+                <span class="skmd-faq__question">Khí hư như thế nào là bất thường?</span>
+                <span class="skmd-faq__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </button>
+              <div class="skmd-faq__body" id="faq-body-3" role="region" aria-labelledby="faq-trigger-3">
+                <div class="skmd-faq__content">
+                  <p>Khí hư bình thường thường trong suốt hoặc trắng đục nhạt, không mùi hoặc mùi nhẹ, và không gây ngứa hay khó chịu. Khí hư có thể coi là <strong>bất thường</strong> khi: có màu vàng, xanh, xám hoặc nâu; có mùi tanh, hôi mạnh hoặc khó chịu; đi kèm ngứa, rát hoặc đau; thay đổi kết cấu bất thường (vón cục như pho mát hoặc loãng bất thường). Những dấu hiệu này có thể chỉ ra viêm nhiễm và cần được kiểm tra.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skmd-faq__item" role="listitem">
+              <button
+                class="skmd-faq__trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-body-4"
+                id="faq-trigger-4"
+              >
+                <span class="skmd-faq__question">Khi nào đau bụng kinh cần được kiểm tra?</span>
+                <span class="skmd-faq__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </button>
+              <div class="skmd-faq__body" id="faq-body-4" role="region" aria-labelledby="faq-trigger-4">
+                <div class="skmd-faq__content">
+                  <p>Đau bụng kinh nhẹ là bình thường. Tuy nhiên, bạn nên được kiểm tra khi: đau bụng kinh <strong>dữ dội ảnh hưởng đến sinh hoạt hàng ngày</strong>, không đáp ứng với thuốc giảm đau thông thường, cơn đau ngày càng nặng hơn theo thời gian, đau kéo dài trước hoặc sau kỳ kinh, hoặc đau kèm theo sốt, buồn nôn nhiều, chảy máu bất thường. Đây có thể là dấu hiệu của lạc nội mạc tử cung hoặc các bệnh lý khác cần được điều trị.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skmd-faq__item" role="listitem">
+              <button
+                class="skmd-faq__trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-body-5"
+                id="faq-trigger-5"
+              >
+                <span class="skmd-faq__question">Viêm phụ khoa có tự khỏi không?</span>
+                <span class="skmd-faq__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </button>
+              <div class="skmd-faq__body" id="faq-body-5" role="region" aria-labelledby="faq-trigger-5">
+                <div class="skmd-faq__content">
+                  <p>Điều này phụ thuộc vào nguyên nhân gây viêm. Một số trường hợp <strong>viêm nhẹ do mất cân bằng pH</strong> có thể tự cải thiện khi loại bỏ tác nhân kích ứng. Tuy nhiên, viêm nhiễm do vi khuẩn, nấm Candida hoặc các tác nhân khác thường <strong>không tự khỏi</strong> và cần điều trị phù hợp. Việc tự điều trị không đúng có thể làm tình trạng nặng hơn hoặc mãn tính. Tốt nhất nên được thăm khám để xác định nguyên nhân và điều trị đúng hướng.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skmd-faq__item" role="listitem">
+              <button
+                class="skmd-faq__trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-body-6"
+                id="faq-trigger-6"
+              >
+                <span class="skmd-faq__question">Khi nào nên kiểm tra cổ tử cung?</span>
+                <span class="skmd-faq__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </button>
+              <div class="skmd-faq__body" id="faq-body-6" role="region" aria-labelledby="faq-trigger-6">
+                <div class="skmd-faq__content">
+                  <p>Khuyến cáo chung: phụ nữ từ <strong>21 tuổi trở lên</strong> hoặc đã có quan hệ tình dục nên bắt đầu tầm soát cổ tử cung (Pap smear). Tần suất phụ thuộc vào độ tuổi và kết quả kiểm tra trước đó — thường từ 1 đến 3 năm một lần. Ngoài ra, nên kiểm tra sớm hơn nếu có: chảy máu sau quan hệ, chảy máu bất thường giữa chu kỳ, tiết dịch bất thường, hoặc kết quả HPV dương tính. Tầm soát định kỳ là cách hiệu quả nhất để phát hiện sớm bất thường.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SECTION 8: MEDICAL EDITORIAL — Cẩm Nang
+         ════════════════════════════════════════════════════════════ -->
+    <section class="skmd-section" aria-labelledby="editorial-heading">
+      <div class="skmd-container">
+        <div class="skmd-section-header">
+          <h2 class="skmd-section-title" id="editorial-heading">Cẩm nang sức khỏe phụ nữ</h2>
+          <p class="skmd-section-desc">Kiến thức được tổ chức theo chủ đề để bạn dễ dàng tìm hiểu và tham khảo.</p>
+        </div>
+
+        <div class="skmd-editorial-taxonomy">
+          <a href="/kien-thuc" class="skmd-editorial-tag skmd-editorial-tag--active" id="editorial-tag-all">Tất cả kiến thức</a>
+          <a href="/benh-co-tu-cung" class="skmd-editorial-tag" id="editorial-tag-ctc">Kiến thức cổ tử cung</a>
+          <a href="/benh-kinh-nguyet" class="skmd-editorial-tag" id="editorial-tag-kinh">Sức khỏe kinh nguyệt</a>
+          <a href="/viem-phu-khoa" class="skmd-editorial-tag" id="editorial-tag-viem">Viêm nhiễm phụ khoa</a>
+          <a href="/benh-tu-cung" class="skmd-editorial-tag" id="editorial-tag-tc">Bệnh tử cung</a>
+          <a href="/tham-my-phu-khoa" class="skmd-editorial-tag" id="editorial-tag-tm">Thẩm mỹ & chăm sóc</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SECTION 9: FINAL CONTENT CTA
+         ════════════════════════════════════════════════════════════ -->
+    <section class="skmd-final-cta-section" aria-labelledby="final-cta-heading">
+      <div class="skmd-container">
+        <div class="skmd-final-cta">
+          <div class="skmd-final-cta__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h2 class="skmd-final-cta__title" id="final-cta-heading">Bạn chưa tìm thấy thông tin mình cần?</h2>
+          <p class="skmd-final-cta__desc">
+            Tìm kiếm thêm các chủ đề sức khỏe phụ khoa hoặc khám phá những nội dung chuyên sâu được cập nhật trên website.
+          </p>
+          <div class="skmd-final-cta__actions">
+            <a href="/kien-thuc" class="skmd-btn skmd-btn--primary" id="final-cta-all-articles">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Xem tất cả bài viết
+            </a>
+            <button
+              type="button"
+              class="skmd-btn skmd-btn--outline"
+              id="final-cta-search"
+              onclick="document.querySelector('.skmd-search-toggle')?.click(); document.querySelector('.skmd-header')?.scrollIntoView({behavior:'smooth'});"
+              aria-label="Mở tìm kiếm thông tin"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Tìm kiếm thông tin
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 10: FOOTER
+       ════════════════════════════════════════════════════════════ -->
   <!-- INJECT_COMPONENT: components/footer.html -->
 
-  <!-- CORE SCRIPTS -->
-  <script src="/assets/js/core.js" type="module" defer></script>
-  
-  <!-- Interactive Scripts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Mobile Menu Toggle
-      const menuToggle = document.querySelector('.skmd-menu-toggle');
-      const offcanvas = document.querySelector('.skmd-offcanvas');
-      const closeButtons = document.querySelectorAll('[data-action="close-menu"]');
+  <!-- Core JS — Vanilla JS only -->
+  <script type="module" src="/assets/js/core.js"></script>
 
-      if (menuToggle && offcanvas) {
-        menuToggle.addEventListener('click', () => {
-          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          menuToggle.setAttribute('aria-expanded', !isExpanded);
-          offcanvas.classList.toggle('is-active');
-          document.body.style.overflow = isExpanded ? '' : 'hidden'; // Prevent body scroll
-        });
-
-        closeButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            menuToggle.setAttribute('aria-expanded', 'false');
-            offcanvas.classList.remove('is-active');
-            document.body.style.overflow = '';
-          });
-        });
-      }
-
-      // FAQ Accordion
-      const faqHeaders = document.querySelectorAll('.skmd-faq-item__header');
-      faqHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-          const item = header.parentElement;
-          const isOpen = item.classList.contains('is-open');
-
-          if (!isOpen) {
-            item.classList.add('is-open');
-            header.setAttribute('aria-expanded', 'true');
-          } else {
-            item.classList.remove('is-open');
-            header.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-      
-      // Sticky Header Scroll effect
-      const header = document.querySelector('.skmd-header');
-      if (header) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 50) {
-            header.style.boxShadow = 'var(--shadow-md)';
-          } else {
-            header.style.boxShadow = 'var(--shadow-sm)';
-          }
-        }, { passive: true });
-      }
-    });
-  </script>
 </body>
 </html>

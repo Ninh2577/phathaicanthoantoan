@@ -1,11 +1,11 @@
-// config/seo.config.js
+// config/seo.config.js — Satellite Medical Content Site
 export const seoConfig = {
-  defaultTitle: "Cắt Trĩ Cần Thơ | Phòng Khám Hậu Môn Trực Tràng Uy Tín",
-  defaultDescription: "Phòng khám chuyên khoa hậu môn trực tràng tại Cần Thơ, chuyên cắt trĩ nội, trĩ ngoại, rò hậu môn bằng phương pháp hiện đại, không đau, hồi phục nhanh.",
-  defaultOGImage: "/assets/images/og-default.jpg",
+  defaultTitle: "Sức Khỏe Phụ Khoa — Kiến Thức Y Khoa Dành Cho Phụ Nữ",
+  defaultDescription: "Thông tin y khoa dễ hiểu về bệnh cổ tử cung, rối loạn kinh nguyệt, bệnh tử cung, viêm phụ khoa, sức khỏe sinh sản và các vấn đề phụ khoa thường gặp.",
+  defaultOGImage: "/assets/images/hero-editorial.jpg",
   twitterCard: "summary_large_image",
-  themeColor: "#0284c7", // Blue medical
-  
+  themeColor: "#9D3862", // Deep Medical Rose-Teal
+
   // Environment Specifics
   environments: {
     production: {
@@ -18,7 +18,7 @@ export const seoConfig = {
       robots: "noindex, nofollow",
     }
   },
-  
+
   // Canonical Strategy
   canonicalStrategy: {
     forceHttps: true,
@@ -26,19 +26,20 @@ export const seoConfig = {
     removeTrailingSlash: true,
     forceLowercase: true
   },
-  
+
   // Hreflang
   hreflang: {
     defaultLanguage: "vi-VN",
     supportedLanguages: ["vi"]
   },
 
-  // Schema configs
+  // Schema configs — Satellite site: NO clinic, NO local business
   schema: {
-    organization: true,
-    medicalClinic: true
+    organization: true,     // OK — represents content brand
+    medicalClinic: false,   // OFF — satellite isolation
+    localBusiness: false,   // OFF — satellite isolation
   },
-  
+
   // Plugin-ready settings
   plugins: {
     analytics: true,
