@@ -444,24 +444,39 @@
   padding: 0;
 }
 .skmd-menu__link {
+  position: relative;
   display: block;
   color: var(--color-text-main);
   font-weight: 600;
   font-size: 0.875rem;
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px 12px;
   text-decoration: none;
-  transition: color var(--transition-fast), background-color var(--transition-fast);
+  transition: color var(--transition-fast);
   white-space: nowrap;
+}
+.skmd-menu__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+  border-radius: 2px;
 }
 .skmd-menu__link:hover {
   color: var(--color-primary);
-  background-color: var(--color-soft-rose);
+}
+.skmd-menu__link:hover::after,
+.skmd-menu__link.active::after,
+.skmd-menu__link[aria-current="page"]::after {
+  width: calc(100% - 24px); /* Tùy chỉnh độ dài gạch chân */
 }
 .skmd-menu__link.active,
 .skmd-menu__link[aria-current="page"] {
   color: var(--color-primary);
-  background-color: var(--color-soft-rose);
 }
 @media (min-width: 1024px) and (max-width: 1200px) {
   .skmd-menu__link { font-size: 0.8125rem; padding: 6px 8px; }
@@ -722,13 +737,13 @@
       </div>
       
       <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
-        <a href="/kien-thuc" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500; ">Tất Cả</a>
-        <a href="/benh-co-tu-cung" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500; ">Bệnh Cổ Tử Cung</a>
-        <a href="/benh-kinh-nguyet" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500; ">Bệnh Kinh Nguyệt</a>
-        <a href="/benh-tu-cung" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500; ">Bệnh Tử Cung</a>
-        <a href="/pha-thai-an-toan" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500; ">Phá Thai An Toàn</a>
-        <a href="/tham-my-phu-khoa" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500; ">Thẩm Mỹ Phụ Khoa</a>
-        <a href="/viem-phu-khoa" class="skmd-btn" style="background: var(--color-white); color: var(--color-text-main); border: 1px solid var(--color-border); border-radius: 50px; padding: 8px 24px; font-weight: 500; background: var(--color-primary) !important; color: white !important; border-color: var(--color-primary) !important;">Viêm Phụ Khoa</a>
+        <a href="/kien-thuc" class="skmd-cat-pill ">Tất Cả</a>
+        <a href="/benh-co-tu-cung" class="skmd-cat-pill ">Bệnh Cổ Tử Cung</a>
+        <a href="/benh-kinh-nguyet" class="skmd-cat-pill ">Bệnh Kinh Nguyệt</a>
+        <a href="/benh-tu-cung" class="skmd-cat-pill ">Bệnh Tử Cung</a>
+        <a href="/pha-thai-an-toan" class="skmd-cat-pill ">Phá Thai An Toàn</a>
+        <a href="/tham-my-phu-khoa" class="skmd-cat-pill ">Thẩm Mỹ Phụ Khoa</a>
+        <a href="/viem-phu-khoa" class="skmd-cat-pill is-active">Viêm Phụ Khoa</a>
       </div>
     </div>
 
