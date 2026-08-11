@@ -1135,7 +1135,7 @@
 @media (min-width: 1024px) {
   .skmd-faq-layout__header {
     position: sticky;
-    top: 130px;
+    top: 80px;
   }
 }
 .skmd-faq-accordion {

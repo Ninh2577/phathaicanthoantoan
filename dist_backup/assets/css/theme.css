@@ -1,0 +1,64 @@
+/* 
+  Theme System CSS - International OB-GYN Healthcare Palette
+  Standard Palette for Obstetrics & Gynecology (Sản Phụ Khoa / Sức Khỏe Phụ Nữ)
+  Deep Elegant Rose Plum & Medical Teal Accent
+*/
+
+:root, [data-theme="blue"] {
+  /* Colors - Standard OB-GYN Medical Palette */
+  --color-primary: #9D3862; 
+  --color-primary-dark: #7A274A;
+  --color-primary-light: #C44F7F;
+  --color-secondary: #0D9488;
+  --color-secondary-dark: #0F766E;
+  --color-soft-rose: #FCE7F0;
+  --color-soft-teal: #CCFBF1;
+  --color-soft-blue: #FCE7F0;
+  --color-medical-bg: #FDF8F9;
+  
+  --color-bg-main: #FFFFFF; 
+  --color-bg-card: #FFFFFF;
+  --color-bg-offset: var(--color-medical-bg); 
+  
+  --color-border: #F3E8EE;
+  --color-border-hover: #E8D3DD;
+  
+  --color-text-main: #1F2937; 
+  --color-text-light: #4B5563;
+  --color-text-muted: #9CA3AF;
+  
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #B42318;
+  --color-white: #FFFFFF;
+
+  /* Typography - Clinical Modern Sans-Serif */
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: 'Inter', system-ui, sans-serif;
+  
+  /* Radius - Modern Healthcare Cards */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows - Soft Modern Elevation */
+  --shadow-sm: 0 2px 6px rgba(157, 56, 98, 0.05);
+  --shadow-md: 0 6px 16px rgba(157, 56, 98, 0.08);
+  --shadow-lg: 0 12px 28px rgba(157, 56, 98, 0.12);
+  --shadow-hover: 0 16px 36px rgba(157, 56, 98, 0.15);
+
+  /* Animation Timings */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Z-index Architecture */
+  --z-negative: -1;
+  --z-elevate: 10;
+  --z-sticky: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
