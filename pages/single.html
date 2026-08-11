@@ -115,9 +115,32 @@
       position: relative;
       box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
+    .skmd-layout-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .skmd-sidebar {
+      width: 100%;
+    }
+    @media(min-width: 1024px) {
+      .skmd-layout-sidebar {
+        flex-direction: row;
+        align-items: start;
+        gap: 60px;
+      }
+      .skmd-article-main {
+        flex: 1;
+        min-width: 0;
+      }
+      .skmd-sidebar {
+        width: 320px;
+        flex-shrink: 0;
+      }
+    }
     .skmd-sidebar-sticky {
       position: sticky;
-      top: 100px;
+      top: 130px;
     }
     .skmd-sidebar-widget__title {
       font-size: 1.25rem;
