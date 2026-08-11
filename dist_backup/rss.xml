@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Sức Khỏe Phụ Khoa</title>
+  <link>https://phathaicanthoantoan.vercel.app</link>
+  <description>Nền tảng thông tin và giáo dục sức khỏe phụ khoa. Kiến thức y khoa dễ hiểu về bệnh cổ tử cung, kinh nguyệt, bệnh tử cung, viêm phụ khoa và sức khỏe sinh sản.</description>
+  <item>
+    <title>Sức Khỏe Phụ Khoa</title>
+    <link>https://phathaicanthoantoan.vercel.app/index</link>
+    <description>Nền tảng thông tin và giáo dục sức khỏe phụ khoa. Kiến thức y khoa dễ hiểu về bệnh cổ tử cung, kinh nguyệt, bệnh tử cung, viêm phụ khoa và sức khỏe sinh sản.</description>
+  </item>
+  <item>
+    <title>benh-co-tu-cung</title>
+    <link>https://phathaicanthoantoan.vercel.app/benh-co-tu-cung</link>
+    <description>Danh mục benh-co-tu-cung</description>
+  </item>
+  <item>
+    <title>benh-kinh-nguyet</title>
+    <link>https://phathaicanthoantoan.vercel.app/benh-kinh-nguyet</link>
+    <description>Danh mục benh-kinh-nguyet</description>
+  </item>
+  <item>
+    <title>benh-tu-cung</title>
+    <link>https://phathaicanthoantoan.vercel.app/benh-tu-cung</link>
+    <description>Danh mục benh-tu-cung</description>
+  </item>
+  <item>
+    <title>pha-thai-an-toan</title>
+    <link>https://phathaicanthoantoan.vercel.app/pha-thai-an-toan</link>
+    <description>Danh mục pha-thai-an-toan</description>
+  </item>
+  <item>
+    <title>tham-my-phu-khoa</title>
+    <link>https://phathaicanthoantoan.vercel.app/tham-my-phu-khoa</link>
+    <description>Danh mục tham-my-phu-khoa</description>
+  </item>
+  <item>
+    <title>viem-phu-khoa</title>
+    <link>https://phathaicanthoantoan.vercel.app/viem-phu-khoa</link>
+    <description>Danh mục viem-phu-khoa</description>
+  </item>
+  <item>
+    <title>Phương pháp PPH trong điều trị cắt trĩ Cập Nhật</title>
+    <link>https://phathaicanthoantoan.vercel.app/phuong-phap-pph-cat-tri</link>
+    <description></description>
+  </item>
+</channel>
+</rss>

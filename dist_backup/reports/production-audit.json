@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "htmlFilesChecked": 16,
+  "indexablePages": 0,
+  "noindexPages": 16,
+  "canonicalValid": 14,
+  "canonicalInvalid": 0,
+  "schemaNodes": 75,
+  "orphanReferences": 0,
+  "internalLinks": 0,
+  "eagerImages": 4,
+  "lazyImages": 0,
+  "missingAlt": 0,
+  "errors": [],
+  "warnings": []
+}

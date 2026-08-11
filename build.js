@@ -455,7 +455,7 @@ async function runBuildPipeline() {
                 currentPageHtml = currentPageHtml.replace(/<!-- INJECT_CATEGORY_DESC -->/g, `Danh sách các bài viết y khoa thuộc chuyên mục ${catData.name}.`);
                 
                 const activeCatKey = catSlug.replace(/-/g, '_').toUpperCase();
-                currentPageHtml = currentPageHtml.replace(`<!-- ACTIVE_${activeCatKey} -->`, 'background: var(--color-primary) !important; color: white !important; border-color: var(--color-primary) !important;');
+                currentPageHtml = currentPageHtml.replace(`<!-- ACTIVE_${activeCatKey} -->`, 'is-active');
                 currentPageHtml = currentPageHtml.replace(/<!-- ACTIVE_[A-Z_]+ -->/g, ''); 
                 
                 let articlesHtml = '';
