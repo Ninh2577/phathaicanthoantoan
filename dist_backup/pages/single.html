@@ -374,15 +374,22 @@
 <div id="scroll-sentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;"></div>
 
 <header class="skmd-header" role="banner">
+  
+  <div class="skmd-header__top">
+    <div class="skmd-container skmd-header__top-inner">
+      <span class="skmd-header__top-text">Chuyên trang Giáo dục & Thông tin Sức khỏe Phụ khoa | Cập nhật Y khoa mới nhất</span>
+      <div class="skmd-header__top-links">
+        <a href="/tieu-chuan-bien-tap">Tiêu chuẩn Y khoa</a>
+        <a href="/kiem-duyet-y-khoa">Kiểm duyệt chuyên môn</a>
+      </div>
+    </div>
+  </div>
+
   <div class="skmd-container skmd-header__inner">
 
     
     <a href="/" class="skmd-logo skmd-header__logo" aria-label="Sức Khỏe Phụ Khoa — Trang chủ">
-      <div class="skmd-logo__icon" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-      </div>
+      <img src="/assets/images/logo.png" alt="Logo" class="skmd-logo__img" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(157, 56, 98, 0.15);">
       <div class="skmd-logo__text-group">
         <span class="skmd-logo__name">Sức Khỏe Phụ Khoa</span>
         <span class="skmd-logo__tagline">Thông Tin Y Khoa</span>
@@ -416,6 +423,9 @@
           <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
       </button>
+
+      
+      <a href="/" class="skmd-header__cta-btn">Khám Phá</a>
 
       
       <button
@@ -476,11 +486,7 @@
     
     <div class="skmd-offcanvas__header">
       <a href="/" class="skmd-logo" data-action="close-menu" aria-label="Sức Khỏe Phụ Khoa — Trang chủ">
-        <div class="skmd-logo__icon" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
-        </div>
+        <img src="/assets/images/logo.png" alt="Logo" class="skmd-logo__img" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(157, 56, 98, 0.15);">
         <span class="skmd-logo__name" style="font-size:1rem;">Sức Khỏe Phụ Khoa</span>
       </a>
       <button class="skmd-offcanvas__close" type="button" aria-label="Đóng menu">
@@ -560,19 +566,55 @@
 </div>
 
 <style>
+/* ─── Top Bar ─────────────────────────────────────────────────────── */
+.skmd-header__top {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: 6px 0;
+  font-size: 0.8125rem;
+  display: none;
+}
+@media (min-width: 768px) {
+  .skmd-header__top {
+    display: block;
+  }
+}
+.skmd-header__top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.skmd-header__top-text {
+  opacity: 0.9;
+}
+.skmd-header__top-links {
+  display: flex;
+  gap: 16px;
+}
+.skmd-header__top-links a {
+  color: var(--color-white);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+.skmd-header__top-links a:hover {
+  opacity: 1;
+}
+
 /* ─── Header Layout ─────────────────────────────────────────────── */
 .skmd-header {
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  background-color: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
-  transition: box-shadow var(--transition-normal);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(157, 56, 98, 0.1);
+  transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 .skmd-header.is-scrolled {
-  box-shadow: 0 2px 16px rgba(157, 56, 98, 0.08);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(157, 56, 98, 0.08);
 }
 .skmd-header__inner {
   display: flex;
@@ -701,6 +743,26 @@
   color: var(--color-primary);
   background-color: var(--color-soft-rose);
   border-color: var(--color-primary-light);
+}
+.skmd-header__cta-btn {
+  display: none;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 12px rgba(157, 56, 98, 0.2);
+}
+.skmd-header__cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(157, 56, 98, 0.3);
+  color: var(--color-white);
+}
+@media (min-width: 1024px) {
+  .skmd-header__cta-btn { display: inline-flex; align-items: center; justify-content: center; }
 }
 
 /* ─── Menu Toggle (mobile only) ─────────────────────────────────── */
@@ -1081,11 +1143,7 @@
       
       <div class="skmd-footer-editorial__brand">
         <a href="/" class="skmd-logo skmd-footer__logo-link" aria-label="Sức Khỏe Phụ Khoa — Trang chủ">
-          <div class="skmd-logo__icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
+          <img src="/assets/images/logo.png" alt="Logo" class="skmd-logo__img" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);">
           <span class="skmd-logo__name">Sức Khỏe Phụ Khoa</span>
         </a>
 
@@ -1134,7 +1192,7 @@
           <li><a href="/tieu-chuan-bien-tap">Tiêu chuẩn biên tập</a></li>
           <li><a href="/kiem-duyet-y-khoa">Kiểm duyệt y khoa</a></li>
           <li><a href="/nguon-tham-khao">Nguồn tham khảo</a></li>
-          <li><a href="/kien-thuc">Tất cả bài viết</a></li>
+          <li><a href="/">Tất cả bài viết</a></li>
         </ul>
       </div>
 

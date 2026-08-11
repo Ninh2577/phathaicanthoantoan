@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-08-11T07:52:20.573Z",
+  "timestamp": "2026-08-11T08:34:14.992Z",
   "platform": "Enterprise Medical Schema Platform",
   "summary": {
-    "totalPagesChecked": 22,
+    "totalPagesChecked": 34,
     "totalErrors": 0,
     "totalWarnings": 0
   },
@@ -66,6 +66,58 @@
       "warnings": []
     },
     {
+      "url": "https://phathaicanthoantoan.vercel.app/chinh-sach-bien-tap",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/chinh-sach-bien-tap",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/chinh-sach-y-khoa",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/chinh-sach-y-khoa",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
       "url": "https://phathaicanthoantoan.vercel.app/dieu-khoan",
       "schemas": [
         "Organization",
@@ -112,6 +164,32 @@
       "warnings": []
     },
     {
+      "url": "https://phathaicanthoantoan.vercel.app/kiem-duyet-y-khoa",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/kiem-duyet-y-khoa",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
       "url": "https://phathaicanthoantoan.vercel.app/lien-he",
       "schemas": [
         "Organization",
@@ -126,6 +204,32 @@
     },
     {
       "url": "https://phathaicanthoantoan.vercel.app/lien-he",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/nguon-tham-khao",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/nguon-tham-khao",
       "schemas": [
         "Organization",
         "WebSite",
@@ -153,6 +257,58 @@
         "Organization",
         "WebSite",
         "WebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/tieu-chuan-bien-tap",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/tieu-chuan-bien-tap",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/ve-website",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://phathaicanthoantoan.vercel.app/ve-website",
+      "schemas": [
+        "Organization",
+        "WebSite",
+        "Person",
+        "Person",
+        "ImageObject",
+        "Article, MedicalWebPage"
       ],
       "errors": [],
       "warnings": []
