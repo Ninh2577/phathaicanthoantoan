@@ -54,7 +54,7 @@ export class SEOManager {
     const title = pageData.normalized?.title || pageData.seoTitle || pageData.title || seoConfig.defaultTitle;
     const description = pageData.normalized?.description || pageData.seoDescription || pageData.excerpt || seoConfig.defaultDescription;
     const ogImage = pageData.normalized?.featuredImage || pageData.featuredImage?.url || seoConfig.defaultOGImage;
-    const canonical = this.generateCanonicalUrl(pageData.normalized?.slug || pageData.slug);
+    const canonical = pageData.canonical !== undefined ? pageData.canonical : this.generateCanonicalUrl(pageData.normalized?.slug || pageData.slug);
     const robots = this.getRobotsMeta(pageData.robots);
     const themeColor = seoConfig.themeColor;
     const hreflang = seoConfig.hreflang.defaultLanguage;
@@ -72,16 +72,18 @@ export class SEOManager {
       <link rel="icon" type="image/png" sizes="32x32" href="${siteConfig.logo}">
       <link rel="apple-touch-icon" sizes="180x180" href="${siteConfig.logo}">
       
-      <!-- Canonical & Hreflang -->
-      <link rel="canonical" href="${canonical}">
-      <link rel="alternate" hreflang="${hreflang}" href="${canonical}">
-      <link rel="alternate" hreflang="x-default" href="${canonical}">
+      <!-- Canonical -->
+      ${canonical ? `<link rel="canonical" href="${canonical}">` : ''}
+      
+      <!-- Rel Prev/Next -->
+      ${pageData.prev ? `\n      <link rel="prev" href="${pageData.prev}">` : ''}
+      ${pageData.next ? `\n      <link rel="next" href="${pageData.next}">` : ''}
       
       <!-- Open Graph -->
       <meta property="og:title" content="${title}">
       <meta property="og:description" content="${description}">
       <meta property="og:image" content="${ogImage}">
-      <meta property="og:url" content="${canonical}">
+      ${canonical ? `<meta property="og:url" content="${canonical}">` : ''}
       <meta property="og:type" content="website">
       <meta property="og:locale" content="${hreflang.replace('-', '_')}">
       <meta property="og:site_name" content="${siteConfig.name}">

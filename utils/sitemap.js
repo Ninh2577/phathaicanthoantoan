@@ -13,19 +13,22 @@ export class GeneratorEngine {
     Logger.info('GeneratorEngine', 'Đang khởi tạo sitemap.xml...');
     
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">`;
 
     pages.forEach(page => {
+      // 404 URL must not be in sitemap
+      if (page.slug === '404') return;
+      
       const url = `${siteConfig.url}/${page.slug === 'index' ? '' : page.slug}`;
-      const lastmod = page.updatedAt ? new Date(page.updatedAt).toISOString() : new Date().toISOString();
+      const lastmod = page.updatedAt ? `<lastmod>${new Date(page.updatedAt).toISOString()}</lastmod>` : '';
       const priority = page.slug === 'index' ? '1.0' : '0.8';
+      const imageNode = page.image ? `\n    <image:image>\n      <image:loc>${page.image}</image:loc>\n    </image:image>` : '';
 
       xml += `
   <url>
     <loc>${url}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>${priority}</priority>
+    ${lastmod ? lastmod + '\n    ' : ''}<changefreq>daily</changefreq>
+    <priority>${priority}</priority>${imageNode}
   </url>`;
     });
 
@@ -50,14 +53,13 @@ export class GeneratorEngine {
 
     articles.forEach(article => {
       const url = `${siteConfig.url}/${article.slug}`;
-      const date = new Date(article.createdAt || Date.now()).toUTCString();
+      const dateNode = article.createdAt ? `\n    <pubDate>${new Date(article.createdAt).toUTCString()}</pubDate>` : '';
       
       rss += `
   <item>
     <title>${article.title}</title>
     <link>${url}</link>
-    <description>${article.description || ''}</description>
-    <pubDate>${date}</pubDate>
+    <description>${article.description || ''}</description>${dateNode}
   </item>`;
     });
 
@@ -78,13 +80,18 @@ export class GeneratorEngine {
       title: siteConfig.name,
       home_page_url: siteConfig.url,
       feed_url: `${siteConfig.url}/feed.json`,
-      items: articles.map(a => ({
-        id: `${siteConfig.url}/${a.slug}`,
-        url: `${siteConfig.url}/${a.slug}`,
-        title: a.title,
-        content_text: a.description,
-        date_published: new Date(a.createdAt || Date.now()).toISOString()
-      }))
+      items: articles.map(a => {
+        const item = {
+          id: `${siteConfig.url}/${a.slug}`,
+          url: `${siteConfig.url}/${a.slug}`,
+          title: a.title,
+          content_text: a.description
+        };
+        if (a.createdAt) {
+          item.date_published = new Date(a.createdAt).toISOString();
+        }
+        return item;
+      })
     };
 
     fs.writeFileSync(path.join(outputDir, 'feed.json'), JSON.stringify(feed, null, 2));

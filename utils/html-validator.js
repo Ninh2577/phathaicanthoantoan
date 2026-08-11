@@ -33,7 +33,7 @@ export class HtmlValidator {
     }
 
     // 3. Kiểm tra Canonical
-    if (!/<link\s+rel=["']canonical["']/i.test(html)) {
+    if (filename !== '404.html' && !/<link\s+rel=["']canonical["']/i.test(html)) {
       results.errors.push('Thiếu thẻ Canonical.');
     }
 

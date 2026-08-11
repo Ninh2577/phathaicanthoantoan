@@ -25,8 +25,8 @@ export class DataNormalizer {
     const featuredImage = articleData.featuredImage?.url || seoConfig.defaultOGImage;
 
     // Chuẩn hóa Date
-    const createdAt = articleData.createdAt ? new Date(articleData.createdAt).toISOString() : new Date().toISOString();
-    const updatedAt = articleData.updatedAt ? new Date(articleData.updatedAt).toISOString() : createdAt;
+    const createdAt = articleData.createdAt ? new Date(articleData.createdAt).toISOString() : null;
+    const updatedAt = articleData.updatedAt ? new Date(articleData.updatedAt).toISOString() : null;
 
     // Chuẩn hóa Author & Reviewer
     const authorName = articleData.author?.name || siteConfig.name;

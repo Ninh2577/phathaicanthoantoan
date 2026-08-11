@@ -44,8 +44,10 @@ export class SchemaMapper {
       case 'contact':
         return [...baseGlobal, 'ContactPage', 'BreadcrumbList', 'WebPage'];
       case '404':
+        // Trang 404 không có Schema (Theo Rule 19)
+        return [];
       default:
-        // Trang 404 hoặc không xác định thì chỉ để WebPage cơ bản (NoIndex sẽ được xử lý ở Meta)
+        // Trang không xác định thì chỉ để WebPage cơ bản
         return ['WebPage'];
     }
   }
@@ -62,14 +64,14 @@ export class SchemaMapper {
       description: rawData.description || '',
       slug: rawData.slug || '',
       content: rawData.content || '',
-      wordCount: rawData.content ? rawData.content.split(' ').length : 0,
-      readingTime: rawData.content ? Math.ceil(rawData.content.split(' ').length / 200) : 1, // 200 từ/phút
+      wordCount: rawData.content ? rawData.content.replace(/<[^>]*>?/gm, '').split(/\s+/).filter(w => w.length > 0).length : undefined,
+      readingTime: rawData.content ? Math.max(1, Math.ceil(rawData.content.replace(/<[^>]*>?/gm, '').split(/\s+/).filter(w => w.length > 0).length / 200)) : undefined, // 200 từ/phút
       image: rawData.featuredImage?.url || schemaConfig.defaults.image.url,
-      datePublished: rawData.createdAt || new Date().toISOString(),
+      datePublished: rawData.createdAt || undefined,
       // Đảm bảo dateModified >= datePublished
-      dateModified: rawData.updatedAt && new Date(rawData.updatedAt) >= new Date(rawData.createdAt) 
+      dateModified: rawData.updatedAt && rawData.createdAt && new Date(rawData.updatedAt) >= new Date(rawData.createdAt) 
         ? rawData.updatedAt 
-        : (rawData.createdAt || new Date().toISOString()),
+        : (rawData.updatedAt || undefined),
       author: {
         name: rawData.author?.name || schemaConfig.defaults.author.name,
         role: rawData.author?.role || schemaConfig.defaults.author.jobTitle
